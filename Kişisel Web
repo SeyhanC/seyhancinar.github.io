@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seyhan Çınar - Kişisel Portföy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f4f6f9, #ffffff);
+      color: #2c3e50;
+    }
+    header {
+      background: #34495e;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    section {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .cv-links a {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 10px 15px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    footer {
+      background: #ecf0f1;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Seyhan Çınar</h1>
+    <p>Freelance Yazılım Danışmanı | Veri Bilimi & Makine Öğrenmesi Uzmanı</p>
+  </header>
+
+  <section>
+    <h2>Hakkımda</h2>
+    <p>32 yılı aşkın süredir yazılım geliştirme alanında aktif olarak çalışmaktayım. COBOL, C, C++, Java ve Python gibi birçok programlama diline hakimim. Bankacılık ve otelcilik sektörlerinde kritik sistemler üzerinde çalıştım, üniversitelerde eğitim verdim. Şimdi freelance olarak algoritma geliştirme, veri analizi ve sistem danışmanlığı yapıyorum.</p>
+  </section>
+
+  <section>
+    <h2>Projeler</h2>
+    <ul>
+      <li>Sayısal Loto & Süper Loto algoritmalarının JavaScript ve Python ile analizi</li>
+      <li><code>bundle.js</code> çözümleme ve güvenlik değerlendirme çalışmaları</li>
+      <li>HTML/CSS/JS ile loto kolon üretici uygulama geliştirme</li>
+      <li>Python ile veri görselleştirme ve makine öğrenimi projeleri</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>CV</h2>
+    <div class="cv-links">
+      <a href="Seyhan_Cinar_CV_TR_Yeni.docx" download>CV (Türkçe)</a>
+      <a href="Seyhan_Cinar_CV_EN_New.docx" download>CV (English)</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>İletişim</h2>
+    <p>Email: <a href="mailto:seyhan40@gmail.com">seyhan40@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/seyhan-cinar" target="_blank">linkedin.com/in/seyhan-cinar</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Seyhan Çınar. Tüm hakları saklıdır.
+  </footer>
+</body>
+</html>
