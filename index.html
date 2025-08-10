@@ -1,153 +1,349 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seyhan Çınar - Yazılım Danışmanı ve Veri Bilimi Uzmanı</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="32 yıllık yazılım geliştirme tecrübesiyle, COBOL'dan Python'a veri bilimi ve algoritma uzmanı. Freelance danışmanlık ve teknik projeler.">
-  <meta name="keywords" content="Seyhan Çınar, yazılım danışmanı, veri bilimi, Python, COBOL, freelance, makine öğrenmesi, algoritma, GitHub, portföy">
-  <meta name="author" content="Seyhan Çınar">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="Seyhan Çınar - Yazılım ve Veri Bilimi Uzmanı">
-  <meta property="og:description" content="COBOL'dan Python'a 32 yıllık deneyimle freelance yazılım danışmanlığı.">
-  <meta property="og:image" content="https://seyhanc.github.io/favicon.png">
-  <meta property="og:url" content="https://seyhanc.github.io">
-  <meta property="og:type" content="website">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seyhan Çınar — Yazılım & Veri Analitiği</title>
+  <meta name="description" content="Seyhan Çınar'ın kişisel sitesi — Yazılım mimarı, veri analisti, RNG ve siber güvenlik meraklısı. Projeler, deneyim, iletişim ve daha fazlası." />
+  <meta name="theme-color" content="#22d3ee" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2322d3ee'/><text x='50' y='58' font-size='58' text-anchor='middle' fill='white' font-family='Segoe UI, Roboto'>S</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:{DEFAULT:'#0b1020',soft:'#0f172a'},
+            card:'#0b1220', accent:'#22d3ee', accent2:'#a78bfa',
+            ink:'#e5e7eb', muted:'#9ca3af'
+          },
+          boxShadow:{glow:'0 10px 40px rgba(34,211,238,.25)'}
+        }
+      }
+    }
+  </script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #f4f6f9, #ffffff);
-      color: #2c3e50;
-    }
-    header {
-      background: #34495e;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      font-size: 1.2em;
-    }
-    section {
-      padding: 30px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
-    .cv-links a {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 10px 15px;
-      background: #3498db;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    footer {
-      background: #ecf0f1;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-    }
-    .lang-toggle {
-      text-align: center;
-      margin-top: 10px;
-    }
-    .lang-toggle button {
-      background: #2c3e50;
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 5px;
-    }
-    .lang-tr, .lang-en {
-      display: none;
-    }
-    .active {
-      display: block;
-    }
+    .glass{backdrop-filter:saturate(140%) blur(12px);background:linear-gradient(180deg,rgba(15,23,42,.75),rgba(2,6,23,.55))}
+    .blob{position:absolute;inset:auto auto -40% -20%;width:80vmin;height:80vmin;filter:blur(60px);opacity:.55;pointer-events:none;background:
+      radial-gradient(50% 50% at 50% 50%, rgba(34,211,238,.55), transparent 60%),
+      radial-gradient(50% 50% at 60% 40%, rgba(167,139,250,.4), transparent 60%);
+      animation:float 16s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(8deg)}100%{transform:translateY(0) rotate(0)}}
+    .shadow-edge{box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 -1px 0 rgba(0,0,0,.4) inset}
+    .grid-auto-fit{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .mask-fade{-webkit-mask:linear-gradient(180deg,#000 70%,transparent);mask:linear-gradient(180deg,#000 70%,transparent)}
   </style>
 </head>
-<body>
-  <header>
-    <h1>Seyhan Çınar</h1>
-    <p>Freelance Yazılım Danışmanı | Veri Bilimi & Makine Öğrenmesi Uzmanı</p>
+<body class="bg-bg text-ink selection:bg-accent/30">
+  <!-- Navbar -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div id="nav" class="glass shadow-edge">
+      <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-3 group">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 ring-1 ring-accent/30">
+            <svg class="h-5 w-5 text-accent group-hover:rotate-12 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v5M12 17v5M2 12h5M17 12h5M4.93 4.93l3.54 3.54M15.53 15.53l3.54 3.54M4.93 19.07l3.54-3.54M15.53 8.47l3.54-3.54"/></svg>
+          </span>
+          <div>
+            <div class="text-sm text-muted">Seyhan Çınar</div>
+            <div class="text-base font-semibold">Yazılım & Veri Analitiği</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#hakkimda" class="hover:text-accent">Hakkımda</a>
+          <a href="#yetenekler" class="hover:text-accent">Yetenekler</a>
+          <a href="#projeler" class="hover:text-accent">Projeler</a>
+          <a href="#deneyim" class="hover:text-accent">Deneyim</a>
+          <a href="#iletisim" class="hover:text-accent">İletişim</a>
+          <button id="themeBtn" class="ml-2 inline-flex items-center gap-2 rounded-xl px-3 py-1.5 ring-1 ring-white/10 hover:ring-white/20">
+            <svg id="moon" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <span class="hidden sm:inline">Tema</span>
+          </button>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl ring-1 ring-white/10">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 px-4 pb-3">
+        <a href="#hakkimda" class="block py-3">Hakkımda</a>
+        <a href="#yetenekler" class="block py-3">Yetenekler</a>
+        <a href="#projeler" class="block py-3">Projeler</a>
+        <a href="#deneyim" class="block py-3">Deneyim</a>
+        <a href="#iletisim" class="block py-3">İletişim</a>
+        <button id="themeBtnM" class="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 ring-1 ring-white/10">Tema</button>
+      </div>
+    </div>
   </header>
 
-  <div class="lang-toggle">
-    <button onclick="setLanguage('tr')">Türkçe</button>
-    <button onclick="setLanguage('en')">English</button>
-  </div>
+  <!-- Hero -->
+  <main id="top" class="relative pt-28">
+    <div class="blob"></div>
+    <section class="relative mx-auto max-w-6xl px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <!-- Görsel -->
+        <div class="relative order-2 md:order-1">
+          <div class="relative w-full max-w-sm mx-auto">
+            <img src="./seyhan.jpg" alt="Seyhan Çınar profil fotoğrafı" class="rounded-3xl ring-1 ring-white/10 shadow-glow object-cover aspect-[4/5]" />
+            <div class="absolute -inset-2 -z-10 rounded-3xl bg-gradient-to-br from-accent/30 to-accent2/30 blur-2xl"></div>
+          </div>
+        </div>
+        <!-- Metin -->
+        <div class="order-1 md:order-2">
+          <span class="inline-flex items-center gap-2 rounded-full bg-accent/10 text-accent ring-1 ring-accent/30 px-3 py-1 text-xs">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent animate-pulse"></span> Müsaitim — Uzaktan & Proje Bazlı
+          </span>
+          <h1 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+            Merhaba, ben <span class="text-accent">Seyhan Çınar</span>.<br/> 32+ yıl deneyimli yazılım mimarı & veri analisti.
+          </h1>
+          <p class="mt-4 text-muted max-w-prose">COBOL’dan Python’a, RNG sistemlerinden siber güvenliğe uzanan geniş bir alanda üretir, öğretir ve danışmanlık veririm. Şu sıralar <strong>Sessiz Sinyal</strong> ve gelişmiş <strong>RNG analiz</strong> projelerine odaklanıyorum.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#projeler" class="inline-flex items-center gap-2 rounded-xl bg-accent text-bg font-semibold px-4 py-2 shadow-glow">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M3 7h18v10H3z"/><path d="M3 7l9 6 9-6" fill="#0000" stroke="currentColor" stroke-width="1.5"/></svg>
+              Projelere Göz At
+            </a>
+            <a href="#iletisim" class="inline-flex items-center gap-2 rounded-xl ring-1 ring-white/10 px-4 py-2">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+              İletişim Kur
+            </a>
+            <a href="#cv" class="inline-flex items-center gap-2 rounded-xl ring-1 ring-white/10 px-4 py-2">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M7 16l5 5 5-5"/></svg>
+              CV İndir (PDF)
+            </a>
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-sm text-muted">
+            <a href="https://instagram.com/seyhan__cinar" target="_blank" class="hover:text-accent inline-flex items-center gap-2">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6.5-.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+              @seyhan__cinar
+            </a>
+            <a href="https://github.com/seyhanC" target="_blank" class="hover:text-accent inline-flex items-center gap-2">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58 0-.29-.01-1.06-.02-2.08-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.35-1.74-1.35-1.74-1.1-.75.08-.73.08-.73 1.22.09 1.86 1.26 1.86 1.26 1.08 1.86 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.98 0-1.32.47-2.39 1.24-3.24-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.86.12 3.16.77.85 1.24 1.92 1.24 3.24 0 4.66-2.8 5.67-5.48 5.97.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.7.83.58A12 12 0 0012 .5z"/></svg>
+              GitHub
+            </a>
+            <a href="mailto:seyhan40@gmail.com" class="hover:text-accent inline-flex items-center gap-2">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+              E-posta
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="lang-tr active">
-    <h2>Hakkımda</h2>
-    <p>32 yılı aşkın süredir yazılım geliştirme alanında aktif olarak çalışmaktayım. COBOL, C, C++, Java ve Python gibi birçok programlama diline hakimim. Bankacılık ve otelcilik sektörlerinde kritik sistemler üzerinde çalıştım, üniversitelerde eğitim verdim. Şimdi freelance olarak algoritma geliştirme, veri analizi ve sistem danışmanlığı yapıyorum. Ayrıca özel bir bankanın COBOL programlama dili eğitimlerinde danışmanlık verdim. C/C++, Python ve HTML/CSS/JavaScript kullanarak Mersenne Twister ve HMAC_DRBG algoritmaları ile sahte rastgele sayı üreten uygulamalar geliştirdim.</p>
-  </section>
+    <!-- Hakkımda -->
+    <section id="hakkimda" class="mx-auto max-w-6xl px-4 mt-16 lg:mt-28">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-bold">Kısa Biyografi</h2>
+          <p class="mt-4 text-muted leading-relaxed">20+ yıl bankacılık ve kurumsal sistemlerde <strong>COBOL</strong>, <strong>z/OS</strong>, <strong>CICS</strong>, <strong>C/C++</strong>; son yıllarda ise <strong>Python</strong>, <strong>JavaScript</strong>, <strong>Veri Bilimi</strong>, <strong>RNG</strong> ve <strong>Siber Güvenlik</strong> odaklı çalışıyorum. Üniversite seviyesinde ders verdim; danışmanlık ve proje geliştirme yapıyorum.</p>
+          <div class="mt-6 grid grid-auto-fit gap-4">
+            <div class="p-4 rounded-2xl ring-1 ring-white/10 bg-white/5">
+              <div class="text-sm text-muted">Şu an</div>
+              <div class="font-semibold">Sessiz Sinyal • RNG Analizi • Eğitim İçerikleri</div>
+            </div>
+            <div class="p-4 rounded-2xl ring-1 ring-white/10 bg-white/5">
+              <div class="text-sm text-muted">Aradığım</div>
+              <div class="font-semibold">Uzaktan/Proje bazlı yazılım & veri danışmanlığı</div>
+            </div>
+            <div class="p-4 rounded-2xl ring-1 ring-white/10 bg-white/5">
+              <div class="text-sm text-muted">Konum</div>
+              <div class="font-semibold">İstanbul, Türkiye • GMT+3</div>
+            </div>
+          </div>
+        </div>
+        <aside class="lg:col-span-1">
+          <div class="p-5 rounded-2xl ring-1 ring-white/10 bg-gradient-to-br from-white/5 to-white/0">
+            <h3 class="font-semibold">Öne Çıkanlar</h3>
+            <ul class="mt-3 space-y-2 text-sm text-muted list-disc list-inside">
+              <li>32+ yıl Cobol, C/C+ yazılım deneyimi</li>
+              <li>Python ile Veri Analizi ve Görselleştirme </li>
+              <li>Makine Öğrenmesi ve Derin Öğrenme Modelleri</li>
+              <li>Doğal Dil İşleme (NLP)</li>
+              <li>Büyük Veri ve Veri Tabanı Yönetimi</li>    
+              <li>İstatistiksel Modelleme & Tahminleme</li>
+              
+              <li>RNG & İstatistiksel Testler (MT19937, HMAC-DRBG)</li>
+              <li>Siber Güvenlik ve Tersine Mühendislik</li>
+              <li>Akademik İngilizce ve eğitim içerikleri</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-  <section class="lang-en">
-    <h2>About Me</h2>
-    <p>I have been actively working in software development for over 32 years. I am proficient in COBOL, C, C++, Java, and Python. I have worked on critical systems in banking and hospitality industries and taught at universities. Currently, I work freelance in algorithm development, data analysis, and systems consultancy. I also provided consultancy and training in COBOL programming for a private bank. I have developed random number generation applications using Mersenne Twister and HMAC_DRBG algorithms with C/C++, Python, and HTML/CSS/JavaScript.</p>
-  </section>
+    <!-- Yetenekler -->
+    <section id="yetenekler" class="mx-auto max-w-6xl px-4 mt-16">
+      <h2 class="text-2xl font-bold">Yetenekler</h2>
+      <div class="mt-4 flex flex-wrap gap-2 text-sm">
+        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">COBOL • CICS • z/OS</span>
+         <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">C • C++</span>   
+        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">Python • Pandas • PyTorch</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">JavaScript • React • Node</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">RNG • MT19937 • HMAC-DRBG</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">Siber Güvenlik • Reverse • OWASP</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">Veri Görselleştirme • Charting</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">SQL • MongoDB</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">DevOps • GitHub Pages</span>
+      </div>
+    </section>
 
-  <section class="lang-tr active">
-    <h2>Projeler</h2>
-    <ul>
-      <li>C/C++, Python ve JavaScript ile rastgele sayı üreticiler: Mersenne Twister, HMAC_DRBG</li>
-      <li>Veri görselleştirme ve makine öğrenmesi uygulamaları (Python)</li>
-      <li>Bankacılık sistemleri için COBOL tabanlı eğitim danışmanlığı</li>
-    </ul>
-  </section>
+    <!-- Projeler -->
+    <section id="projeler" class="mx-auto max-w-6xl px-4 mt-16">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl font-bold">Projeler</h2>
+        <a href="https://seyhancinar.github.io" target="_blank" class="text-sm text-accent hover:underline">Tümünü Gör</a>
+      </div>
+      <div class="mt-6 grid grid-auto-fit gap-6">
+        <article class="group relative overflow-hidden rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <img class="h-44 w-full object-cover mask-fade" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" alt="RNG analiz uygulaması görseli">
+          <div class="p-5">
+            <h3 class="font-semibold">Güçlü RNG Test Suite</h3>
+            <p class="mt-1 text-sm text-muted">MT19937 & HMAC-DRBG için chi-square, runs, otokorelasyon ve entropi testleri içeren web tabanlı araç.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded-full bg-accent/15 text-accent">JavaScript</span>
+              <span class="px-2 py-1 rounded-full bg-accent2/15 text-accent2">Visualization</span>
+            </div>
+          </div>
+        </article>
+        <article class="group relative overflow-hidden rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <img class="h-44 w-full object-cover mask-fade" src="https://images.unsplash.com/photo-1542831371-d531d36971e6?q=80&w=1200&auto=format&fit=crop" alt="Sessiz Sinyal projesi görseli">
+          <div class="p-5">
+            <h3 class="font-semibold">Sessiz Sinyal (MVP)</h3>
+            <p class="mt-1 text-sm text-muted">Davranış + fizyoloji verisinden kişisel farkındalık haritası çıkaran mobil uyumlu MVP.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded-full bg-accent/15 text-accent">HTML5</span>
+              <span class="px-2 py-1 rounded-full bg-accent2/15 text-accent2">TensorFlow.js</span>
+            </div>
+          </div>
+        </article>
+        <article class="group relative overflow-hidden rounded-2xl ring-1 ring-white/10 bg-white/5">
+          <img class="h-44 w-full object-cover mask-fade" src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="RNG kolon üretici görseli">
+          <div class="p-5">
+            <h3 class="font-semibold">Akıllı Loto Üretici</h3>
+            <p class="mt-1 text-sm text-muted">MT19937 + insan benzeri örüntülerle 6/90, 6/60 ve 5/34+1/14 kolon üretimi.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded-full bg-accent/15 text-accent">MT19937</span>
+              <span class="px-2 py-1 rounded-full bg-accent2/15 text-accent2">UI/UX</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <section class="lang-en">
-    <h2>Projects</h2>
-    <ul>
-      <li>Random number generators with C/C++, Python, and JavaScript: Mersenne Twister, HMAC_DRBG</li>
-      <li>Data visualization and machine learning applications (Python)</li>
-      <li>COBOL-based training consultancy for banking systems</li>
-    </ul>
-  </section>
+    <!-- Deneyim -->
+    <section id="deneyim" class="mx-auto max-w-6xl px-4 mt-16">
+      <h2 class="text-2xl font-bold">Deneyim – Kısaca</h2>
+      <ol class="mt-6 relative border-s border-white/10 space-y-8">
+        <li class="ms-6">
+          <span class="absolute -start-3 top-0 h-6 w-6 rounded-full bg-accent/20 ring-2 ring-accent/40"></span>
+          <h3 class="font-semibold">Yazılım Mimarı & Danışman</h3>
+          <p class="text-sm text-muted">Serbest • 2013 – bugün</p>
+          <p class="mt-2 text-sm">Kurumsal dönüşüm projeleri, veri analitiği, RNG ve siber güvenlik odaklı çalışmalar.</p>
+        </li>
+        <li class="ms-6">
+          <span class="absolute -start-3 top-0 h-6 w-6 rounded-full bg-accent/20 ring-2 ring-accent/40"></span>
+          <h3 class="font-semibold">Bilgi İşlem Müdürü / Yazılım Mimarı</h3>
+          <p class="text-sm text-muted">Banka & Konaklama Sektörü • 1994 – 2012</p>
+          <p class="mt-2 text-sm">Ana bankacılık, POS, CRM, MIS; yüksek hacimli ana bilgisayar (z/OS) uygulamaları.</p>
+        </li>
+      </ol>
+    </section>
 
-  <section>
-    <h2>CV</h2>
-    <div class="cv-links">
-      <a href="Seyhan_Cinar_CV_TR_Yeni.pdf" download>CV (Türkçe)</a>
-      <a href="Seyhan_Cinar_CV_EN_New.pdf" download>CV (English)</a>
+    <!-- CV & İndirilecekler -->
+    <section id="cv" class="mx-auto max-w-6xl px-4 mt-16">
+      <div class="rounded-2xl ring-1 ring-white/10 bg-gradient-to-br from-white/5 to-white/0 p-6">
+        <h2 class="text-2xl font-bold">CV & Belgeler</h2>
+        <p class="mt-2 text-sm text-muted"></p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="Seyhan_Cinar_CV_TR_Yeni.pdf" download class="inline-flex items-center gap-2 rounded-xl bg-accent text-bg font-semibold px-4 py-2 shadow-glow">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v12m0 0l4-4m-4 4l-4-4"/><path d="M5 21h14"/></svg>
+            CV (PDF) İndir
+          </a>
+          <a href="#" class="inline-flex items-center gap-2 rounded-xl ring-1 ring-white/10 px-4 py-2">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v14H3z"/><path d="M3 17l6-6 4 4 5-5 3 3"/></svg>
+            Portföy (ZIP)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- İletişim (Form KALDIRILDI — yalnızca mailto) -->
+    <section id="iletisim" class="mx-auto max-w-6xl px-4 mt-12 mb-8">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-bold">İletişim</h2>
+          <p class="mt-2 text-sm text-muted">Hızlıca ulaşmak için aşağıdaki butona tıklayın; e-posta uygulamanızda yeni bir mesaj açılır.</p>
+          <div class="mt-6">
+            <a href="mailto:seyhan40@gmail.com" class="inline-flex items-center gap-2 rounded-xl bg-accent text-bg font-semibold px-5 py-3 shadow-glow">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+              E-posta Gönder → seyhan40@gmail.com
+            </a>
+          </div>
+        </div>
+        <aside>
+          <div class="p-5 rounded-2xl ring-1 ring-white/10 bg-white/5">
+            <h3 class="font-semibold">Bağlantılar</h3>
+            <ul class="mt-3 space-y-2 text-sm">
+              <li><a class="hover:text-accent" href="mailto:seyhan40@gmail.com">seyhan40@gmail.com</a></li>
+              <li><a class="hover:text-accent" href="https://instagram.com/seyhan__cinar" target="_blank">instagram.com/seyhan__cinar</a></li>
+              <li><a class="hover:text-accent" href="https://github.com/seyhanC" target="_blank">github.com/seyhanC</a></li>
+              <li><a class="hover:text-accent" href="https://seyhancinar.github.io" target="_blank">seyhancinar.github.io</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-6xl px-4 py-6 text-sm text-muted flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>© <span id="y"></span> Seyhan Çınar. Tüm hakları saklıdır.</div>
+      <div class="flex items-center gap-4">
+        <a href="#top" class="hover:text-accent">Yukarı çık</a>
+        <span class="opacity-50">•</span>
+        <button id="toggleDense" class="hover:text-accent">Kompakt görünüm</button>
+      </div>
     </div>
-  </section>
-
-  <section>
-    <h2>İletişim</h2>
-    <p>Email: <a href="mailto:seyhan40@gmail.com">seyhan40@gmail.com</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 Seyhan Çınar. Tüm hakları saklıdır.<br>
-    <small>Bu site <strong>Seyhan Çınar</strong> tarafından tasarlandı ve geliştirildi.</small>
   </footer>
 
+  <!-- Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Seyhan Çınar",
+    "jobTitle": "Yazılım Mimarı ve Veri Analisti",
+    "url": "https://seyhancinar.github.io",
+    "image": "seyhan.jpg",
+    "sameAs": [
+      "https://instagram.com/seyhan__cinar",
+      "https://github.com/seyhanC"
+    ]
+  }
+  </script>
+
+  <!-- Etkileşimler -->
   <script>
-    function setLanguage(lang) {
-      document.querySelectorAll('.lang-tr, .lang-en').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
-    }
+    const y = document.getElementById('y'); y.textContent = new Date().getFullYear();
+    const setTheme = (d) => { document.documentElement.classList.toggle('dark', d === 'dark'); localStorage.setItem('theme', d); }
+    const preferred = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(preferred);
+    const toggleTheme = () => setTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
+    document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+    document.getElementById('themeBtnM').addEventListener('click', toggleTheme);
+
+    const m = document.getElementById('mobileMenu');
+    document.getElementById('menuBtn').addEventListener('click', () => m.classList.toggle('hidden'));
+
+    const toggleDense = document.getElementById('toggleDense'); let dense = false;
+    toggleDense.addEventListener('click', () => {
+      dense = !dense;
+      document.body.classList.toggle('text-[15px]', dense);
+      document.querySelectorAll('section').forEach(s => s.classList.toggle('mt-10', dense));
+    });
+
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('shadow', window.scrollY > 8);
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   </script>
 </body>
 </html>
-    
