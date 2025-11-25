@@ -1,422 +1,565 @@
-<!doctype html>
-<html lang="tr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seyhan Çınar — Yazılım Danışmanı & Veri Bilimi</title>
+<!doctype html>    
+<html lang="tr">    
+<head>    
+  <meta charset="utf-8" />    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />    
+  <title>Seyhan Çınar — Yazılım Danışmanı, Veri Analitiği & Veri Bilimi</title>    
+    
+  <!-- Canonical & hreflang -->    
+  <link rel="canonical" href="https://seyhancinar.online/"/>    
+  <link rel="alternate" hreflang="tr" href="https://seyhancinar.online/"/>    
+  <link rel="alternate" hreflang="en" href="https://seyhancinar.online/?lang=en"/>    
+  <link rel="alternate" hreflang="x-default" href="https://seyhancinar.online/"/>    
+    
+  <!-- Meta SEO -->    
+  <meta name="description" content="Seyhan Çınar'ın resmi sayfası. Yazılım mimarisi, veri analitiği, veri bilimi, makine öğrenmesi, RNG ve güvenlik projeleri." />    
+  <meta name="keywords" content="Seyhan Çınar, yazılım danışmanı, veri analisti, veri mühendisi, veri bilimi, data science, data engineering, machine learning, RNG, MT19937, HMAC-DRBG, Python, COBOL, C, C++, Java, Jupyter, Pandas" />    
+  <meta name="author" content="Seyhan Çınar" />    
+  <meta name="publisher" content="seyhancinar.online" />    
+  <meta name="theme-color" content="#0b1220" />    
+  <meta name="robots" content="index,follow" />    
+  <meta name="language" content="tr,en" />    
+    
+  <!-- Open Graph / Twitter -->    
+  <meta property="og:title" content="Seyhan Çınar — Yazılım Danışmanı, Veri Analitiği & Veri Bilimi" />    
+  <meta property="og:description" content="32+ yıllık tecrübe ile yazılım mimarisi, veri analitiği, veri bilimi, ML ve güvenlik projeleri. Projelerim ve üretimlerim seyhancinar.online'da." />    
+  <meta property="og:type" content="website" />    
+  <meta property="og:url" content="https://seyhancinar.online" />    
+  <meta property="og:locale" content="tr_TR" />    
+  <meta property="og:locale:alternate" content="en_US" />    
+  <meta property="og:site_name" content="seyhancinar.online" />    
+  <meta name="twitter:card" content="summary_large_image" />    
+  <meta name="twitter:creator" content="@seyhancinar" />    
+    
+  <!-- JSON-LD: Person (Structured Data) -->    
+  <script type="application/ld+json">    
+  {    
+    "@context": "https://schema.org",    
+    "@type": "Person",    
+    "name": "Seyhan Çınar",    
+    "jobTitle": "Yazılım Danışmanı, Veri Analisti & Veri Bilimi Uzmanı",    
+    "url": "https://seyhancinar.online",    
+    "email": "mailto:seyhan40@gmail.com",    
+    "telephone": "+90-542-301-31-02",    
+    "address": {    
+      "@type": "PostalAddress",    
+      "addressLocality": "İstanbul",    
+      "addressCountry": "TR"    
+    },    
+    "knowsAbout": [    
+      "Software Architecture",    
+      "Data Science",    
+      "Data Engineering",    
+      "Analytics Engineering",    
+      "Machine Learning",    
+      "Random Number Generators",    
+      "Fraud & Risk Analytics",    
+      "Reverse Engineering",    
+      "UNIX/Linux"    
+    ],    
+    "worksFor": {    
+      "@type": "Organization",    
+      "name": "Freelance"    
+    }    
+  }    
+  </script>    
+    
+  <style>    
+    :root{    
+      --bg:#0b1220; --bg2:#0d1526; --card:#0f1b32; --ink:#f4f7ff; --muted:#cfe0ff;    
+      --accent:#22d3ee; --accent2:#38bdf8; --ok:#10b981; --warn:#f59e0b; --err:#ef4444;    
+      --shadow: 0 10px 30px rgba(0,0,0,.35);    
+      --ink-soft:#e8eeff; --heading:#ffffff;    
+      --chip-bg:#132443; --chip-br:#1b2f54;    
+    }    
+    *{box-sizing:border-box}    
+    html{scroll-behavior:smooth}    
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink)}    
+    a{color:inherit;text-decoration:none}    
+    img{max-width:100%;display:block}    
+    .container{max-width:1100px;margin:0 auto;padding:20px}    
+    header{position:sticky;top:0;background:rgba(13,21,38,.7);backdrop-filter:blur(8px);z-index:10;border-bottom:1px solid #1d2a44}    
+    .nav{display:flex;align-items:center;justify-content:space-between}    
+    .brand{display:flex;align-items:center;gap:12px}    
+    .logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--shadow)}    
+    .brand h1{font-size:18px;margin:0;letter-spacing:.3px;color:var(--heading)}    
+    nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0}    
+    nav a{padding:10px 12px;border-radius:10px;opacity:.95}    
+    nav a:hover{background:#12213d}    
+    .menu-btn{display:none}    
+    
+    /* language buttons with flags */    
+    .lang-wrap{display:flex;gap:8px;align-items:center}    
+    .lang-btn{padding:8px 12px;border-radius:999px;border:1px solid #8fb6ff;background:#e9f2ff;color:#0a1a35;font-weight:700;cursor:pointer;display:inline-flex;gap:8px;align-items:center}    
+    .lang-btn .flag{font-size:16px;line-height:1}    
+    .lang-btn.active{outline:2px solid #b5d2ff}    
+    
+    /* hero */    
+    .hero{padding:72px 0 40px}    
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}    
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#12213d;color:var(--accent2);font-weight:600;font-size:12px;letter-spacing:.4px}    
+    .heading{font-size:40px;line-height:1.1;margin:14px 0 10px;color:var(--heading)}    
+    .sub{color:var(--ink-soft);font-size:16px;line-height:1.7}    
+    .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}    
+    .btn{padding:12px 16px;border-radius:12px;font-weight:700;border:1px solid #1d2a44;background:#12213d;color:var(--ink)}    
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#082030;border:none}    
+    .btn.light{background:#eaf3ff;border-color:#cfe1ff;color:#0a1a35}    
+    .card{background:linear-gradient(180deg,#0f1b32,#0b1426);border:1px solid #1d2a44;border-radius:16px;padding:20px;box-shadow:var(--shadow);color:var(--ink)}    
+    
+    /* sections */    
+    section{padding:56px 0}    
+    h2{font-size:26px;margin:0 0 18px;color:var(--heading)}    
+    h3{color:var(--ink)}    
+    .grid{display:grid;gap:16px}    
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}    
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}    
+    .muted{color:var(--ink-soft)}    
+    
+    /* badges & timeline */    
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--chip-bg);color:#f2f7ff;border:1px solid var(--chip-br);font-size:12px}    
+    .tl{border-left:2px dashed #1f3258;margin-left:10px;padding-left:16px}    
+    .tl .item{margin:14px 0}    
+    
+    /* footer */    
+    footer{padding:40px 0;border-top:1px solid #15243f;color:#e9f1ff}    
+    .ft{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}    
+    
+    /* responsive */    
+    @media (max-width:900px){ .hero .wrap{grid-template-columns:1fr} }    
+    @media (max-width:720px){    
+      nav ul{display:none}    
+      .menu-btn{display:inline-flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid #1d2a44;border-radius:10px;background:#12213d;color:#0b1220}    
+      .heading{font-size:34px}    
+    }    
+    
+    [data-lang]{display:none}    
+    [data-lang].active{display:block}    
+  </style>    
+</head>    
+<body>    
+  <header>    
+    <div class="container nav">    
+      <div class="brand">    
+        <div class="logo" aria-hidden></div>    
+        <h1>Seyhan Çınar</h1>    
+      </div>    
+      <nav aria-label="Ana menü">    
+        <button class="menu-btn" id="menuBtn">Menü ▾</button>    
+        <ul id="menuList">    
+          <li><a id="linkAbout" href="#about-tr">Hakkımda</a></li>    
+          <li><a id="linkSkills" href="#skills-tr">Yetenekler</a></li>    
+          <li><a id="linkProjects" href="#projects-tr">Projeler</a></li>    
+          <li><a id="linkContact" href="#contact-tr">İletişim</a></li>    
+        </ul>    
+      </nav>    
+    
+      <!-- Flagged TR/EN buttons -->    
+      <div class="lang-wrap">    
+        <button class="lang-btn" id="btnTR" aria-label="Türkçe"><span class="flag">🇹🇷</span><span>TR</span></button>    
+        <button class="lang-btn" id="btnEN" aria-label="English"><span class="flag">🇬🇧</span><span>EN</span></button>    
+      </div>    
+    </div>    
+  </header>    
+    
+  <!-- ====== TR ====== -->    
+  <main data-lang="tr" id="langTR">    
+    <section class="hero">    
+      <div class="container wrap">    
+        <div>    
+          <span class="tag">Freelance Yazılım Danışmanı • Veri Analitiği, Veri Bilimi & ML</span>    
+          <h2 class="heading">Gerçek problemler için <span style="color:var(--accent2)">pratik, ölçülebilir ve veri odaklı</span> çözümler üretiyorum.</h2>    
+          <p class="sub">32+ yıllık deneyim: COBOL → C/C++ → Java → Python. Çekirdek bankacılık ve otelcilik otomasyonları, veri analitiği, veri bilimi, güvenlik ve RNG projeleri. Son yıllarda odak noktam; <strong>Python + Pandas ile veri analizi</strong>, <strong>veri mühendisliği mantığıyla ETL süreçleri</strong>, <strong>fraud & risk analizi</strong> ve <strong>çok alanlı (e-ticaret + banka + otel) veri projeleri</strong>. Tüm üretimlerimi <strong>seyhancinar.online</strong> üzerinde bir araya getiriyorum.</p>    
+          <div class="cta">    
+            <a class="btn primary" href="#projects-tr">Projeleri keşfet</a>    
+            <a class="btn" href="#contact-tr">İletişime geç</a>    
+            <a class="btn light" href="Seyhan_Cinar_CV_TR_Yeni.pdf" download>CV (TR) PDF</a>    
+            <a class="btn light" href="Seyhan_Cinar_CV_EN_New.pdf" download>CV (EN) PDF</a>    
+          </div>    
+        </div>    
+        <div class="card">    
+          <p style="margin:0 0 8px">Kısaca</p>    
+          <div class="grid grid-2">    
+            <span class="chip">Veri Analitiği & Görselleştirme</span>    
+            <span class="chip">Python • Pandas • NumPy • Jupyter</span>    
+            <span class="chip">COBOL • C/C++ • Java</span>    
+            <span class="chip">RNG: MT19937 • HMAC-DRBG</span>    
+            <span class="chip">Fraud & Risk Analizi</span>    
+            <span class="chip">UNIX/Linux • Reverse Engineering</span>    
+          </div>    
+        </div>    
+      </div>    
+    </section>    
+    
+    <section id="about-tr">    
+      <div class="container">    
+        <h2>Hakkımda</h2>    
+        <div class="card">    
+          <p>Ben Seyhan Çınar. 1990’ların başında COBOL ile ana bilgisayar üzerinde çekirdek bankacılık ve otel otomasyonları geliştirerek başladım. Yıllar içinde C/C++, Java ve C# ile kurumsal sistemler tasarladım; sistem analizi, mimari tasarım ve performans optimizasyonu üzerine çalıştım.</p>    
+          <p>Son dönemde odağım; <strong>Python ile veri analitiği, veri bilimi ve analitik projeler</strong>. E-ticaret, bankacılık ve otelcilik alanlarından gelen verileri; <strong>Pandas, NumPy, Matplotlib/Seaborn</strong> ve Jupyter Notebook ortamında işleyerek <strong>çok alanlı (multi-domain) veri hikâyeleri</strong> çıkarıyorum. Özellikle:</p>    
+          <ul class="muted" style="margin-top:6px;line-height:1.7">    
+            <li>Satış analitiği (e-ticaret): Aylık trend, müşteri segmentasyonu, kategori bazlı kârlılık.</li>    
+            <li>Fraud & risk analizi (banka): Gece işlemleri, şehir sıçramaları, cihaz analizi ve basit risk skor modelleri.</li>    
+            <li>Otel rezervasyon analizi: Doluluk oranı, oda tipi gelirleri, iptal oranı ve konuk davranışları.</li>    
+            <li>RNG ve güvenlik: MT19937, HMAC-DRBG ve bundle.js üzerinden tersine mühendislik çalışmaları.</li>    
+          </ul>    
+          <p>Ayrıca veri analisti ve veri mühendisi arayan ekipler için; <strong> Python veri analizi eğitimleri, Jupyter tabanlı proje setup’ları ve ETL mantığıyla çalışan örnek veri hatları (pipelines)</strong> tasarlıyorum.</p>    
+          <div class="tl">    
+            <div class="item"><strong>1992–2012:</strong> Otel yazılımları (COBOL), Y2K & para birimi dönüşümü, sistem yönetimi, raporlama.</div>    
+            <div class="item"><strong>2013–2014:</strong> Bankacılık yazılımları (COBOL) ve çekirdek bankacılık süreçleri.</div>    
+            <div class="item"><strong>2014–2020:</strong> Akademik danışmanlık ve dersler (C/C++/Java), algoritma ve veri yapıları.</div>    
+            <div class="item"><strong>2023 →</strong> Python ile Veri Bilimi & ML, veri analitiği projeleri, fraud & risk analizi, RNG ve tersine mühendislik.</div>    
+          </div>    
+          <p class="muted" style="margin-top:8px">Sertifikalar: İstanbul Üniversitesi — Veri Bilimi & İleri Veri Bilimi (2023). E-ticaret, bankacılık ve otel rezervasyon verileri üzerinde geliştirilmiş çok alanlı Jupyter proje portföyü (Python + Pandas + Matplotlib).</p>    
+        </div>    
+      </div>    
+    </section>    
+    
+    <section id="skills-tr">    
+      <div class="container">    
+        <h2>Yetenekler & Araçlar</h2>    
+        <div class="grid grid-3">    
+          <div class="card">    
+            <h3 style="margin-top:0">Programlama & Mimari</h3>    
+            <p class="muted">COBOL, C, C++, Java, Python, C#. Kurumsal mimari, ana bilgisayar sistemleri, modüler tasarım, performans odaklı kodlama.</p>    
+          </div>    
+          <div class="card">    
+            <h3 style="margin-top:0">Veri Analitiği & Veri Bilimi</h3>    
+            <p class="muted">Pandas, NumPy, Matplotlib, Seaborn, scikit-learn, Jupyter Notebook. EDA, veri temizleme, feature engineering, fraud & risk skorlama, zaman serisi ve çok boyutlu analizler.</p>    
+          </div>    
+          <div class="card">    
+            <h3 style="margin-top:0">Sistem, DB & Güvenlik</h3>    
+            <p class="muted">UNIX/Linux, Windows Server, MS SQL Server. RNG algoritmaları (MT19937, HMAC-DRBG), bundle.js tersine mühendislik, istemci tarafı güvenlik analizi ve log odaklı inceleme.</p>    
+          </div>    
+        </div>    
+      </div>    
+    </section>    
+    
+    <section id="projects-tr">    
+      <div class="container">    
+        <h2>Projeler</h2>    
+        <div class="grid grid-3">    
+          <article class="card">    
+            <h3 style="margin-top:0">Multi-Domain Analytics Lab</h3>    
+            <p class="muted">Tek bir Jupyter defteri içinde; e-ticaret satış verisi, banka işlem verisi ve otel rezervasyon verisini birleştiren, müşteri başına 360° profil çıkaran analitik proje. VIP & riskli müşteri tespiti, segmentasyon ve görsel raporlar içeriyor.</p>    
+            <span class="chip">Python</span> <span class="chip">Pandas</span> <span class="chip">Jupyter</span> <span class="chip">Analytics</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">Sessiz Sinyal • NeuroPulseMap</h3>    
+            <p class="muted">Mobil tarayıcıda çalışan mikro davranış analizi. Dokunma / tıklama hareketlerinden “sessiz sinyaller” çıkaran, ileride nabız ve giyilebilir cihaz verisiyle birleşecek bir bilinç haritası prototipi.</p>    
+            <span class="chip">HTML5 + JS</span> <span class="chip">TensorFlow.js</span> <span class="chip">Charting</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">AI-Loto • RNG Lab</h3>    
+            <p class="muted">MT19937 ve HMAC-DRBG tabanlı rastgele sayı üreteçlerinin istatistiksel testleri, insan eliyle üretilen kolonlarla karşılaştırma ve “perceived random” yaklaşımıyla hibrit kolon üretimi.</p>    
+            <span class="chip">MT19937</span> <span class="chip">HMAC-DRBG</span> <span class="chip">Pandas</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">DeceptiNet AI</h3>    
+            <p class="muted">Dinamik siber aldatma ağı kurgusu: saldırganı yönlendiren sahte yüzeyler, log takibi ve LLM destekli savunma stratejileri. Konsept tasarım + PoC fikirleri.</p>    
+            <span class="chip">Python</span> <span class="chip">LLM & RL fikirleri</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">YDS Study Hub</h3>    
+            <p class="muted">YDS için kapsamlı bir çalışma alanı: kelime kartları, 3D flip-card arayüzler, gramer özetleri ve soru tiplerine göre interaktif HTML/CSS/JS içerikleri.</p>    
+            <span class="chip">HTML/CSS/JS</span> <span class="chip">İçerik Otomasyonu</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">bundle.js Güvenlik Analizi</h3>    
+            <p class="muted">İstemci tarafı JS bundle’larının tersine mühendisliği, RNG fonksiyonlarının takibi, seed mekanizması analizi ve olası zafiyetlerin modellenmesi.</p>    
+            <span class="chip">Reverse Engineering</span> <span class="chip">RNG Analizi</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">Danışmanlık & Eğitim</h3>    
+            <p class="muted">Şirketlere veri analitiği, Python ile veri bilimi ve RNG/güvenlik odaklı atölyeler. İşe özel Jupyter şablonları, veri pipeline örnekleri ve ekibe uygun eğitim programları.</p>    
+            <span class="chip">Workshop</span> <span class="chip">Mentorluk</span>    
+          </article>    
+        </div>    
+      </div>    
+    </section>    
+    
+    <section id="contact-tr">    
+      <div class="container">    
+        <h2>İletişim</h2>    
+        <div class="card">    
+          <p class="muted">Veri analitiği, RNG, güvenlik veya eğitim/danışmanlık için benimle iletişime geçebilirsiniz. E-posta adresime tek dokunuşla kopyalayabilirsiniz.</p>    
+          <div class="grid grid-2" style="align-items:center">    
+            <div>    
+              <p style="margin:6px 0"><strong>E-posta:</strong> <a href="mailto:seyhan40@gmail.com">seyhan40@gmail.com</a></p>    
+              <p style="margin:6px 0"><strong>Telefon:</strong> <a href="tel:+905423013102">+90 542 301 31 02</a></p>    
+              <p style="margin:6px 0" class="muted">İstanbul, Türkiye</p>    
+            </div>    
+            <div style="text-align:right">    
+              <button class="btn primary" id="copyBtnTR">E-posta adresini kopyala</button>    
+            </div>    
+          </div>    
+        </div>    
+      </div>    
+    </section>    
+  </main>    
+    
+  <!-- ====== EN ====== -->    
+  <main data-lang="en" id="langEN">    
+    <section class="hero">    
+      <div class="container wrap">    
+        <div>    
+          <span class="tag">Freelance Software Consultant • Data Analytics, Data Science & ML</span>    
+          <h2 class="heading">I build <span style="color:var(--accent2)">practical, measurable and data-driven</span> solutions for real-world problems.</h2>    
+          <p class="sub">32+ years of experience: COBOL → C/C++ → Java → Python. Core banking and hospitality automation, data analytics, data science, security and RNG projects. In recent years I’ve been focusing on <strong>Python + Pandas based analytics</strong>, <strong>data-engineering-style ETL flows</strong>, <strong>fraud & risk analysis</strong> and <strong>multi-domain (e-commerce + banking + hospitality) projects</strong>. I’m bringing all my work together on <strong>seyhancinar.online</strong>.</p>    
+          <div class="cta">    
+            <a class="btn primary" href="#projects-en">Explore projects</a>    
+            <a class="btn" href="#contact-en">Get in touch</a>    
+            <a class="btn light" href="Seyhan_Cinar_CV_EN_New.pdf" download>CV (EN) PDF</a>    
+            <a class="btn light" href="Seyhan_Cinar_CV_TR_Yeni.pdf" download>CV (TR) PDF</a>    
+          </div>    
+        </div>    
+        <div class="card">    
+          <p style="margin:0 0 8px">At a glance</p>    
+          <div class="grid grid-2">    
+            <span class="chip">Data Analytics & Visualization</span>    
+            <span class="chip">Python • Pandas • NumPy • Jupyter</span>    
+            <span class="chip">COBOL • C/C++ • Java</span>    
+            <span class="chip">RNG: MT19937 • HMAC-DRBG</span>    
+            <span class="chip">Fraud & Risk Analytics</span>    
+            <span class="chip">UNIX/Linux • Reverse Engineering</span>    
+          </div>    
+        </div>    
+      </div>    
+    </section>    
+    
+    <section id="about-en">    
+      <div class="container">    
+        <h2>About</h2>    
+        <div class="card">    
+          <p>I’m Seyhan Çınar, a senior developer and architect who started in the early 1990s with COBOL on mainframes, building core banking and hospitality automation systems. Over the years I’ve worked with C/C++, Java and C#, designing enterprise systems, focusing on architecture, performance and robustness.</p>    
+          <p>Today my primary focus is <strong>data analytics and data science with Python</strong>. I work with e-commerce, banking and hotel reservation data, using <strong>Pandas, NumPy, Matplotlib/Seaborn</strong> and Jupyter Notebook to build <strong>multi-domain analytical stories</strong>. Typical work includes:</p>    
+          <ul class="muted" style="margin-top:6px;line-height:1.7">    
+            <li>Sales analytics (e-commerce): monthly trends, customer segmentation, category profitability.</li>    
+            <li>Fraud & risk analytics (banking): night-time activity, city hops, device anomalies and simple scoring models.</li>    
+            <li>Hotel reservation analytics: occupancy rate, room-type revenue, cancellation behaviour and guest patterns.</li>    
+            <li>RNG & security: MT19937 and HMAC-DRBG analysis, bundle.js reverse engineering and client-side risk assessment.</li>    
+          </ul>    
+          <p>I also help teams that are hiring data analysts or data engineers by designing <strong>Python-based analytics setups, Jupyter templates and ETL-style pipelines</strong> tailored to their business.</p>    
+          <div class="tl">    
+            <div class="item"><strong>1992–2012:</strong> Hotel software (COBOL), Y2K & currency migration, system administration and reporting.</div>    
+            <div class="item"><strong>2013–2014:</strong> Banking software (COBOL) and core banking processes.</div>    
+            <div class="item"><strong>2014–2020:</strong> Academic consulting & teaching (C/C++/Java), algorithms and data structures.</div>    
+            <div class="item"><strong>2023 →</strong> Data Science & ML with Python, analytics projects, fraud & risk analysis, RNG and reverse engineering.</div>    
+          </div>    
+          <p class="muted" style="margin-top:8px">Certificates: Istanbul University — Data Science & Advanced Data Science (2023). Multi-domain Jupyter portfolio combining e-commerce, banking and hospitality datasets (Python + Pandas + Matplotlib).</p>    
+        </div>    
+      </div>    
+    </section>    
+    
+    <section id="skills-en">    
+      <div class="container">    
+        <h2>Skills & Tools</h2>    
+        <div class="grid grid-3">    
+          <div class="card">    
+            <h3 style="margin-top:0">Programming & Architecture</h3>    
+            <p class="muted">COBOL, C, C++, Java, Python, C#. Enterprise architecture, mainframe systems, modular design and performance-oriented development.</p>    
+          </div>    
+          <div class="card">    
+            <h3 style="margin-top:0">Data Analytics & Data Science</h3>    
+            <p class="muted">Pandas, NumPy, Matplotlib, Seaborn, scikit-learn, Jupyter Notebook. EDA, data cleaning, feature engineering, fraud & risk scoring, time-series and multi-dimensional analysis.</p>    
+          </div>    
+          <div class="card">    
+            <h3 style="margin-top:0">Systems, DB & Security</h3>    
+            <p class="muted">UNIX/Linux, Windows Server, MS SQL Server. RNG algorithms (MT19937, HMAC-DRBG), bundle.js reverse engineering, client-side security analysis and log-driven investigations.</p>    
+          </div>    
+        </div>    
+      </div>    
+    </section>    
+    
+    <section id="projects-en">    
+      <div class="container">    
+        <h2>Projects</h2>    
+        <div class="grid grid-3">    
+          <article class="card">    
+            <h3 style="margin-top:0">Multi-Domain Analytics Lab</h3>    
+            <p class="muted">A single Jupyter notebook that combines e-commerce sales, banking transactions and hotel reservations to build 360° customer profiles. Includes VIP & risky-customer detection, segmentation and visual reporting.</p>    
+            <span class="chip">Python</span> <span class="chip">Pandas</span> <span class="chip">Jupyter</span> <span class="chip">Analytics</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">Silent Signal • NeuroPulseMap</h3>    
+            <p class="muted">Micro-behaviour analysis in the mobile browser. A prototype that reads subtle tap/click “silent signals” and will later merge them with pulse and wearable-device data to form a personal “consciousness map”.</p>    
+            <span class="chip">HTML5 + JS</span> <span class="chip">TensorFlow.js</span> <span class="chip">Charting</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">AI-Lotto • RNG Lab</h3>    
+            <p class="muted">Statistical testing of MT19937 and HMAC-DRBG based RNGs, comparing them with human-generated lottery tickets and experimenting with “perceived randomness” hybrid strategies.</p>    
+            <span class="chip">MT19937</span> <span class="chip">HMAC-DRBG</span> <span class="chip">Pandas</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">DeceptiNet AI</h3>    
+            <p class="muted">A dynamic cyber-deception network concept: guiding attackers into controlled fake surfaces, analysing logs, and using LLM-assisted defence strategies. Concept design + PoC ideas.</p>    
+            <span class="chip">Python</span> <span class="chip">LLM & RL ideas</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">YDS Study Hub</h3>    
+            <p class="muted">A comprehensive workspace for the YDS exam: vocabulary cards, 3D flip-card interfaces, grammar summaries and interactive HTML/CSS/JS content by question type.</p>    
+            <span class="chip">HTML/CSS/JS</span> <span class="chip">Content Automation</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">bundle.js Security Analysis</h3>    
+            <p class="muted">Reverse engineering of client-side JS bundles, tracking RNG functions and seed mechanisms, and modelling possible weaknesses.</p>    
+            <span class="chip">Reverse Engineering</span> <span class="chip">RNG Analysis</span>    
+          </article>    
+    
+          <article class="card">    
+            <h3 style="margin-top:0">Consulting & Training</h3>    
+            <p class="muted">Corporate packages for data analytics, Python-based data science and RNG/security workshops. Jupyter templates, pipeline examples and custom training journeys for teams.</p>    
+            <span class="chip">Workshops</span> <span class="chip">Mentorship</span>    
+          </article>    
+        </div>    
+      </div>    
+    </section>    
+    
+    <section id="contact-en">    
+      <div class="container">    
+        <h2>Contact</h2>    
+        <div class="card">    
+          <p class="muted">If you’re interested in data analytics, RNG, security or training/consulting, feel free to reach out. You can copy my email with one tap.</p>    
+          <div class="grid grid-2" style="align-items:center">    
+            <div>    
+              <p style="margin:6px 0"><strong>Email:</strong> <a href="mailto:seyhan40@gmail.com">seyhan40@gmail.com</a></p>    
+              <p style="margin:6px 0"><strong>Phone:</strong> <a href="tel:+905423013102">+90 542 301 31 02</a></p>    
+              <p style="margin:6px 0" class="muted">Istanbul, Türkiye</p>    
+            </div>    
+            <div style="text-align:right">    
+              <button class="btn primary" id="copyBtnEN">Copy email address</button>    
+            </div>    
+          </div>    
+        </div>    
+      </div>    
+    </section>    
+  </main>    
+    
+  <footer>    
+    <div class="container ft">    
+      <span>© <span id="y"></span> Seyhan Çınar</span>    
+      <div style="display:flex;gap:10px;flex-wrap:wrap">    
+        <a class="chip" id="footAbout" href="#about-tr">Hakkımda / About</a>    
+        <a class="chip" id="footProjects" href="#projects-tr">Projeler / Projects</a>    
+        <a class="chip" id="footContact" href="#contact-tr">İletişim / Contact</a>    
+      </div>    
+    </div>    
+  </footer>    
+    
+  <script>    
+    // responsive menu    
+    const btn = document.getElementById('menuBtn');    
+    const list = document.getElementById('menuList');    
+    if(btn){    
+      btn.addEventListener('click', ()=>{    
+        const isOpen = getComputedStyle(list).display !== 'none';    
+        list.style.display = isOpen ? 'none' : 'flex';    
+        list.style.flexDirection = 'column';    
+        list.style.gap = '8px';    
+        list.style.marginTop = '10px';    
+      });    
+    }    
+    
+    // language switch    
+    const tr = document.getElementById('langTR');    
+    const en = document.getElementById('langEN');    
+    const btnTR = document.getElementById('btnTR');    
+    const btnEN = document.getElementById('btnEN');    
 
-  <!-- Canonical & hreflang -->
-  <link rel="canonical" href="https://seyhancinar.online/"/>
-  <link rel="alternate" hreflang="tr" href="https://seyhancinar.online/"/>
-  <link rel="alternate" hreflang="en" href="https://seyhancinar.online/?lang=en"/>
-  <link rel="alternate" hreflang="x-default" href="https://seyhancinar.online/"/>
+    const linkAbout = document.getElementById('linkAbout');
+    const linkSkills = document.getElementById('linkSkills');
+    const linkProjects = document.getElementById('linkProjects');
+    const linkContact = document.getElementById('linkContact');
 
-  <!-- Meta SEO -->
-  <meta name="description" content="Seyhan Çınar'ın resmi sayfası. Yazılım mimarisi, veri bilimi, makine öğrenmesi ve güvenlik projeleri." />
-  <meta name="keywords" content="Seyhan Çınar, yazılım danışmanı, veri bilimi, machine learning, RNG, MT19937, HMAC-DRBG, Python, COBOL, C, C++, Java" />
-  <meta name="author" content="Seyhan Çınar" />
-  <meta name="publisher" content="seyhancinar.online" />
-  <meta name="theme-color" content="#0b1220" />
-  <meta name="robots" content="index,follow" />
-  <meta name="language" content="tr,en" />
+    const footAbout = document.getElementById('footAbout');
+    const footProjects = document.getElementById('footProjects');
+    const footContact = document.getElementById('footContact');
+    
+    function setLang(to){    
+      if(to==='tr'){    
+        tr.classList.add('active'); 
+        en.classList.remove('active');    
+        document.documentElement.setAttribute('lang','tr');    
+        btnTR.classList.add('active'); 
+        btnEN.classList.remove('active');    
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Seyhan Çınar — Yazılım Danışmanı & Veri Bilimi" />
-  <meta property="og:description" content="Projelerim ve üretimlerim yakında seyhancinar.online'da!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://seyhancinar.online" />
-  <meta property="og:locale" content="tr_TR" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <meta property="og:site_name" content="seyhancinar.online" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@seyhancinar" />
+        // nav & footer anchors for TR
+        linkAbout.href = '#about-tr';
+        linkSkills.href = '#skills-tr';
+        linkProjects.href = '#projects-tr';
+        linkContact.href = '#contact-tr';
 
-  <!-- JSON-LD: Person (Structured Data) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Seyhan Çınar",
-    "jobTitle": "Yazılım Danışmanı & Veri Bilimi Uzmanı",
-    "url": "https://seyhancinar.online",
-    "email": "mailto:seyhan40@gmail.com",
-    "telephone": "+90-542-301-31-02",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "İstanbul",
-      "addressCountry": "TR"
-    },
-    "knowsAbout": [
-      "Software Architecture",
-      "Data Science",
-      "Machine Learning",
-      "Random Number Generators",
-      "Reverse Engineering",
-      "UNIX/Linux"
-    ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
-    }
-  }
-  </script>
+        footAbout.href = '#about-tr';
+        footProjects.href = '#projects-tr';
+        footContact.href = '#contact-tr';
 
-  <style>
-    :root{
-      --bg:#0b1220; --bg2:#0d1526; --card:#0f1b32; --ink:#f4f7ff; --muted:#cfe0ff;
-      --accent:#22d3ee; --accent2:#38bdf8; --ok:#10b981; --warn:#f59e0b; --err:#ef4444;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --ink-soft:#e8eeff; --heading:#ffffff;
-      --chip-bg:#132443; --chip-br:#1b2f54;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{max-width:1100px;margin:0 auto;padding:20px}
-    header{position:sticky;top:0;background:rgba(13,21,38,.7);backdrop-filter:blur(8px);z-index:10;border-bottom:1px solid #1d2a44}
-    .nav{display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--shadow)}
-    .brand h1{font-size:18px;margin:0;letter-spacing:.3px;color:var(--heading)}
-    nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0}
-    nav a{padding:10px 12px;border-radius:10px;opacity:.95}
-    nav a:hover{background:#12213d}
-    .menu-btn{display:none}
+        history.replaceState({}, '', location.pathname + '?lang=tr');    
+      }else{    
+        en.classList.add('active'); 
+        tr.classList.remove('active');    
+        document.documentElement.setAttribute('lang','en');    
+        btnEN.classList.add('active'); 
+        btnTR.classList.remove('active');    
 
-    /* language buttons with flags */
-    .lang-wrap{display:flex;gap:8px;align-items:center}
-    .lang-btn{padding:8px 12px;border-radius:999px;border:1px solid #8fb6ff;background:#e9f2ff;color:#0a1a35;font-weight:700;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
-    .lang-btn .flag{font-size:16px;line-height:1}
-    .lang-btn.active{outline:2px solid #b5d2ff}
+        // nav & footer anchors for EN
+        linkAbout.href = '#about-en';
+        linkSkills.href = '#skills-en';
+        linkProjects.href = '#projects-en';
+        linkContact.href = '#contact-en';
 
-    /* hero */
-    .hero{padding:72px 0 40px}
-    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
-    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#12213d;color:var(--accent2);font-weight:600;font-size:12px;letter-spacing:.4px}
-    .heading{font-size:40px;line-height:1.1;margin:14px 0 10px;color:var(--heading)}
-    .sub{color:var(--ink-soft);font-size:16px;line-height:1.7}
-    .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
-    .btn{padding:12px 16px;border-radius:12px;font-weight:700;border:1px solid #1d2a44;background:#12213d;color:var(--ink)}
-    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#082030;border:none}
-    .btn.light{background:#eaf3ff;border-color:#cfe1ff;color:#0a1a35}
-    .card{background:linear-gradient(180deg,#0f1b32,#0b1426);border:1px solid #1d2a44;border-radius:16px;padding:20px;box-shadow:var(--shadow);color:var(--ink)}
+        footAbout.href = '#about-en';
+        footProjects.href = '#projects-en';
+        footContact.href = '#contact-en';
 
-    /* sections */
-    section{padding:56px 0}
-    h2{font-size:26px;margin:0 0 18px;color:var(--heading)}
-    h3{color:var(--ink)}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .muted{color:var(--ink-soft)}
-
-    /* badges & timeline */
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--chip-bg);color:#f2f7ff;border:1px solid var(--chip-br);font-size:12px}
-    .tl{border-left:2px dashed #1f3258;margin-left:10px;padding-left:16px}
-    .tl .item{margin:14px 0}
-
-    /* footer */
-    footer{padding:40px 0;border-top:1px solid #15243f;color:#e9f1ff}
-    .ft{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-
-    /* responsive */
-    @media (max-width:900px){ .hero .wrap{grid-template-columns:1fr} }
-    @media (max-width:720px){
-      nav ul{display:none}
-      .menu-btn{display:inline-flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid #1d2a44;border-radius:10px;background:#12213d;color:var(--ink)}
-      .heading{font-size:34px}
-    }
-
-    [data-lang]{display:none}
-    [data-lang].active{display:block}
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden></div>
-        <h1>Seyhan Çınar</h1>
-      </div>
-      <nav aria-label="Ana menü">
-        <button class="menu-btn" id="menuBtn">Menü ▾</button>
-        <ul id="menuList">
-          <li><a href="#about">Hakkımda</a></li>
-          <li><a href="#skills">Yetenekler</a></li>
-          <li><a href="#projects">Yakında</a></li>
-          <li><a href="#contact">İletişim</a></li>
-        </ul>
-      </nav>
-
-      <!-- Flagged TR/EN buttons -->
-      <div class="lang-wrap">
-        <button class="lang-btn" id="btnTR" aria-label="Türkçe"><span class="flag">🇹🇷</span><span>TR</span></button>
-        <button class="lang-btn" id="btnEN" aria-label="English"><span class="flag">🇬🇧</span><span>EN</span></button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ====== TR ====== -->
-  <main data-lang="tr" id="langTR">
-    <section class="hero">
-      <div class="container wrap">
-        <div>
-          <span class="tag">Freelance Yazılım Danışmanı • Veri Bilimi & ML</span>
-          <h2 class="heading">Gerçek problemler için <span style="color:var(--accent2)">pratik ve ölçülebilir</span> çözümler üretiyorum.</h2>
-          <p class="sub">32+ yıllık deneyim: COBOL → C/C++ → Java → Python. Bankacılık ve otelcilik otomasyonları, veri bilimi, güvenlik ve RNG projeleri. Şimdi tüm üretimlerimi <strong>seyhancinar.online</strong> üzerinden bir araya getiriyorum.</p>
-          <div class="cta">
-            <a class="btn primary" href="#projects">Projeleri keşfet</a>
-            <a class="btn" href="#contact">İletişime geç</a>
-            <a class="btn light" href="Seyhan_Cinar_CV_TR_Yeni.pdf" download>CV (TR) PDF</a>
-            <a class="btn light" href="Seyhan_Cinar_CV_EN_New.pdf" download>CV (EN) PDF</a>
-          </div>
-        </div>
-        <div class="card">
-          <p style="margin:0 0 8px">Kısaca</p>
-          <div class="grid grid-2">
-            <span class="chip">Veri Bilimi & Görselleştirme</span>
-            <span class="chip">Python • Pandas • NumPy</span>
-            <span class="chip">COBOL • C/C++ • Java</span>
-            <span class="chip">RNG: MT19937 • HMAC-DRBG</span>
-            <span class="chip">UNIX/Linux Sistemleri</span>
-            <span class="chip">Tersine Mühendislik: bundle.js</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <h2>Hakkımda</h2>
-        <div class="card">
-          <p>Yazılım mimarisi ve veri bilimi odağında çalışan bir geliştiriciyim... (metin aynı)</p>
-          <div class="tl">
-            <div class="item"><strong>1992–2012:</strong> Otel yazılımları (COBOL), Y2K & para birimi dönüşümü, sistem yönetimi.</div>
-            <div class="item"><strong>2013–2014:</strong> Bankacılık yazılımları (COBOL).</div>
-            <div class="item"><strong>2014–2020:</strong> Akademik danışmanlık ve dersler (C/C++/Java).</div>
-            <div class="item"><strong>2023→</strong> Python ile Veri Bilimi & ML, tersine mühendislik ve RNG projeleri.</div>
-          </div>
-          <p class="muted" style="margin-top:8px">Sertifikalar: İstanbul Üniversitesi — Veri Bilimi & İleri Veri Bilimi (2023).</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <h2>Yetenekler & Araçlar</h2>
-        <div class="grid grid-3">
-          <div class="card"><h3 style="margin-top:0">Programlama</h3><p class="muted">COBOL, C, C++, Java, Python, C#</p></div>
-          <div class="card"><h3 style="margin-top:0">Veri & ML</h3><p class="muted">Pandas, NumPy, Matplotlib, scikit-learn, TensorFlow</p></div>
-          <div class="card"><h3 style="margin-top:0">Sistem & DB</h3><p class="muted">UNIX/Linux, Windows Server, MS SQL Server</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2>Yakında Yayında — Projeler</h2>
-        <div class="grid grid-3">
-          <!-- kartlar aynı -->
-          <article class="card"><h3 style="margin-top:0">Sessiz Sinyal • NeuroPulseMap</h3><p class="muted">Mobil tarayıcıda çalışan mikro davranış analizi...</p><span class="chip">HTML5 + JS</span> <span class="chip">TensorFlow.js</span> <span class="chip">Charting</span></article>
-          <article class="card"><h3 style="margin-top:0">AI-Loto • RNG Lab</h3><p class="muted">MT19937 & HMAC-DRBG karşılaştırmaları...</p><span class="chip">MT19937</span> <span class="chip">HMAC-DRBG</span> <span class="chip">Pandas</span></article>
-          <article class="card"><h3 style="margin-top:0">DeceptiNet AI</h3><p class="muted">Dinamik siber aldatma ağı...</p><span class="chip">Python</span> <span class="chip">LLM & RL fikirleri</span></article>
-          <article class="card"><h3 style="margin-top:0">YDS Study Hub</h3><p class="muted">YDS için kapsamlı çalışma alanı...</p><span class="chip">HTML/CSS/JS</span> <span class="chip">İçerik Otomasyonu</span></article>
-          <article class="card"><h3 style="margin-top:0">bundle.js Güvenlik Analizi</h3><p class="muted">İstemci tarafı kodların...</p><span class="chip">Reverse Engineering</span></article>
-          <article class="card"><h3 style="margin-top:0">Danışmanlık & Eğitim</h3><p class="muted">Şirketlere veri analitiği...</p><span class="chip">Workshop</span> <span class="chip">Mentorluk</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2>İletişim</h2>
-        <div class="card">
-          <p class="muted">Birlikte çalışalım mı? E-posta adresime tek dokunuşla kopyalayabilirsiniz.</p>
-          <div class="grid grid-2" style="align-items:center">
-            <div>
-              <p style="margin:6px 0"><strong>E-posta:</strong> <a href="mailto:seyhan40@gmail.com">seyhan40@gmail.com</a></p>
-              <p style="margin:6px 0"><strong>Telefon:</strong> <a href="tel:+905423013102">+90 542 301 31 02</a></p>
-              <p style="margin:6px 0" class="muted">İstanbul, Türkiye</p>
-            </div>
-            <div style="text-align:right">
-              <button class="btn primary" id="copyBtnTR">E-posta adresini kopyala</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ====== EN ====== -->
-  <main data-lang="en" id="langEN">
-    <section class="hero">
-      <div class="container wrap">
-        <div>
-          <span class="tag">Freelance Software Consultant • Data Science & ML</span>
-          <h2 class="heading">I build <span style="color:var(--accent2)">practical and measurable</span> solutions for real-world problems.</h2>
-          <p class="sub">32+ years of experience: COBOL → C/C++ → Java → Python. Banking & hospitality automation, data science, security and RNG projects. I’m bringing all my work together on <strong>seyhancinar.online</strong>.</p>
-          <div class="cta">
-            <a class="btn primary" href="#projects">Explore projects</a>
-            <a class="btn" href="#contact">Get in touch</a>
-            <a class="btn light" href="Seyhan_Cinar_CV_EN_New.pdf" download>CV (EN) PDF</a>
-            <a class="btn light" href="Seyhan_Cinar_CV_TR_Yeni.pdf" download>CV (TR) PDF</a>
-          </div>
-        </div>
-        <div class="card">
-          <p style="margin:0 0 8px">At a glance</p>
-          <div class="grid grid-2">
-            <span class="chip">Data Science & Visualization</span>
-            <span class="chip">Python • Pandas • NumPy</span>
-            <span class="chip">COBOL • C/C++ • Java</span>
-            <span class="chip">RNG: MT19937 • HMAC-DRBG</span>
-            <span class="chip">UNIX/Linux Systems</span>
-            <span class="chip">Reverse Engineering: bundle.js</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <h2>About</h2>
-        <div class="card">
-          <p>I’m a developer focused on software architecture and data science... (text same as before)</p>
-          <div class="tl">
-            <div class="item"><strong>1992–2012:</strong> Hotel software (COBOL), Y2K & currency migration, system administration.</div>
-            <div class="item"><strong>2013–2014:</strong> Banking software (COBOL).</div>
-            <div class="item"><strong>2014–2020:</strong> Academic consulting & teaching (C/C++/Java).</div>
-            <div class="item"><strong>2023→</strong> Data Science & ML with Python, reverse engineering, RNG projects.</div>
-          </div>
-          <p class="muted" style="margin-top:8px">Certificates: Istanbul University — Data Science & Advanced Data Science (2023).</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <h2>Skills & Tools</h2>
-        <div class="grid grid-3">
-          <div class="card"><h3 style="margin-top:0">Programming</h3><p class="muted">COBOL, C, C++, Java, Python, C#</p></div>
-          <div class="card"><h3 style="margin-top:0">Data & ML</h3><p class="muted">Pandas, NumPy, Matplotlib, scikit-learn, TensorFlow</p></div>
-          <div class="card"><h3 style="margin-top:0">Systems & DB</h3><p class="muted">UNIX/Linux, Windows Server, MS SQL Server</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2>Coming Soon — Projects</h2>
-        <div class="grid grid-3">
-          <!-- same cards -->
-          <article class="card"><h3 style="margin-top:0">Silent Signal • NeuroPulseMap</h3><p class="muted">Micro-behavior analysis...</p><span class="chip">HTML5 + JS</span> <span class="chip">TensorFlow.js</span> <span class="chip">Charting</span></article>
-          <article class="card"><h3 style="margin-top:0">AI-Lotto • RNG Lab</h3><p class="muted">MT19937 & HMAC-DRBG comparisons...</p><span class="chip">MT19937</span> <span class="chip">HMAC-DRBG</span> <span class="chip">Pandas</span></article>
-          <article class="card"><h3 style="margin-top:0">DeceptiNet AI</h3><p class="muted">Dynamic cyber-deception network...</p><span class="chip">Python</span> <span class="chip">LLM & RL ideas</span></article>
-          <article class="card"><h3 style="margin-top:0">YDS Study Hub</h3><p class="muted">A comprehensive workspace...</p><span class="chip">HTML/CSS/JS</span> <span class="chip">Content Automation</span></article>
-          <article class="card"><h3 style="margin-top:0">bundle.js Security Analysis</h3><p class="muted">Reverse engineering client-side code...</p><span class="chip">Reverse Engineering</span></article>
-          <article class="card"><h3 style="margin-top:0">Consulting & Training</h3><p class="muted">Corporate packages...</p><span class="chip">Workshops</span> <span class="chip">Mentorship</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <div class="card">
-          <p class="muted">Shall we work together? You can copy my email with one tap.</p>
-          <div class="grid grid-2" style="align-items:center">
-            <div>
-              <p style="margin:6px 0"><strong>Email:</strong> <a href="mailto:seyhan40@gmail.com">seyhan40@gmail.com</a></p>
-              <p style="margin:6px 0"><strong>Phone:</strong> <a href="tel:+905423013102">+90 542 301 31 02</a></p>
-              <p style="margin:6px 0" class="muted">Istanbul, Türkiye</p>
-            </div>
-            <div style="text-align:right">
-              <button class="btn primary" id="copyBtnEN">Copy email address</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container ft">
-      <span>© <span id="y"></span> Seyhan Çınar</span>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="chip" href="#about">Hakkımda / About</a>
-        <a class="chip" href="#projects">Projeler / Projects</a>
-        <a class="chip" href="#contact">İletişim / Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // responsive menu
-    const btn = document.getElementById('menuBtn');
-    const list = document.getElementById('menuList');
-    if(btn){
-      btn.addEventListener('click', ()=>{
-        const isOpen = getComputedStyle(list).display !== 'none';
-        list.style.display = isOpen ? 'none' : 'flex';
-        list.style.flexDirection = 'column';
-        list.style.gap = '8px';
-        list.style.marginTop = '10px';
-      });
-    }
-
-    // language switch
-    const tr = document.getElementById('langTR');
-    const en = document.getElementById('langEN');
-    const btnTR = document.getElementById('btnTR');
-    const btnEN = document.getElementById('btnEN');
-
-    function setLang(to){
-      if(to==='tr'){
-        tr.classList.add('active'); en.classList.remove('active');
-        document.documentElement.setAttribute('lang','tr');
-        btnTR.classList.add('active'); btnEN.classList.remove('active');
-        history.replaceState({}, '', location.pathname + '?lang=tr');
-      }else{
-        en.classList.add('active'); tr.classList.remove('active');
-        document.documentElement.setAttribute('lang','en');
-        btnEN.classList.add('active'); btnTR.classList.remove('active');
-        history.replaceState({}, '', location.pathname + '?lang=en');
-      }
-      window.scrollTo({top:0});
-    }
-
-    btnTR.addEventListener('click', ()=>setLang('tr'));
-    btnEN.addEventListener('click', ()=>setLang('en'));
-
-    // auto select by URL ?lang= or browser language
-    (function bootstrapLang(){
-      const url = new URL(window.location.href);
-      const qp = (url.searchParams.get('lang')||'').toLowerCase();
-      if(qp==='tr' || qp==='en'){ setLang(qp); return; }
-      const sys = (navigator.language || navigator.userLanguage || 'tr').toLowerCase();
-      setLang(sys.startsWith('tr') ? 'tr' : 'en');
-    })();
-
-    // copy helpers
-    function wireCopy(btn, text, okText, resetText){
-      if(!btn) return;
-      btn.addEventListener('click', async ()=>{
-        try{
-          await navigator.clipboard.writeText(text);
-          btn.textContent = okText;
-          btn.style.background = 'linear-gradient(135deg,var(--ok),#34d399)';
-          setTimeout(()=>{btn.textContent=resetText;btn.style.background='linear-gradient(135deg,var(--accent),var(--accent2))';}, 1800);
-        }catch(e){
-          alert(text);
-        }
-      });
-    }
-    wireCopy(document.getElementById('copyBtnTR'), 'seyhan40@gmail.com', 'Kopyalandı ✔', 'E-posta adresini kopyala');
-    wireCopy(document.getElementById('copyBtnEN'), 'seyhan40@gmail.com', 'Copied ✔', 'Copy email address');
-
-    // year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
+        history.replaceState({}, '', location.pathname + '?lang=en');    
+      }    
+      window.scrollTo({top:0});    
+    }    
+    
+    btnTR.addEventListener('click', ()=>setLang('tr'));    
+    btnEN.addEventListener('click', ()=>setLang('en'));    
+    
+    // auto select by URL ?lang= or browser language    
+    (function bootstrapLang(){    
+      const url = new URL(window.location.href);    
+      const qp = (url.searchParams.get('lang')||'').toLowerCase();    
+      if(qp==='tr' || qp==='en'){ 
+        setLang(qp); 
+        return; 
+      }    
+      const sys = (navigator.language || navigator.userLanguage || 'tr').toLowerCase();    
+      setLang(sys.startsWith('tr') ? 'tr' : 'en');    
+    })();    
+    
+    // copy helpers    
+    function wireCopy(btn, text, okText, resetText){    
+      if(!btn) return;    
+      btn.addEventListener('click', async ()=>{    
+        try{    
+          await navigator.clipboard.writeText(text);    
+          btn.textContent = okText;    
+          btn.style.background = 'linear-gradient(135deg,var(--ok),#34d399)';    
+          setTimeout(()=>{btn.textContent=resetText;btn.style.background='linear-gradient(135deg,var(--accent),var(--accent2))';}, 1800);    
+        }catch(e){    
+          alert(text);    
+        }    
+      });    
+    }    
+    wireCopy(document.getElementById('copyBtnTR'), 'seyhan40@gmail.com', 'Kopyalandı ✔', 'E-posta adresini kopyala');    
+    wireCopy(document.getElementById('copyBtnEN'), 'seyhan40@gmail.com', 'Copied ✔', 'Copy email address');    
+    
+    // year    
+    document.getElementById('y').textContent = new Date().getFullYear();    
+  </script>    
+</body>    
 </html>
