@@ -375,6 +375,154 @@
       font-size:13px;
     }
     .toast.show{opacity:1; transform:translateX(-50%) translateY(-4px)}
+
+    /* --- ✅ EK: Data Cleaning Demo Styles --- */
+    .note{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding:12px;
+      color: var(--muted);
+      line-height:1.6;
+    }
+    .demoGrid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .demoCol6{grid-column: span 6}
+    .demoCol12{grid-column: span 12}
+    @media (max-width: 900px){ .demoCol6{grid-column: span 12} }
+
+    .panel{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--r);
+      padding:14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
+      overflow:hidden;
+    }
+    .panelHead{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center; justify-content:space-between;
+      margin-bottom:10px;
+    }
+    .panelHead h4{margin:0; font-size:16px; letter-spacing:.2px}
+    .small{font-size:12.5px; color:var(--muted2)}
+    .tableWrap{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      border-radius: 16px;
+      overflow:auto;
+      max-height: 380px;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+    th, td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      font-size:13px;
+      white-space:nowrap;
+    }
+    th{
+      position:sticky; top:0;
+      background: rgba(5,8,20,.85);
+      backdrop-filter: blur(8px);
+      text-align:left;
+      color: rgba(255,255,255,.85);
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .pill2{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      font-size:12.5px;
+      color: rgba(255,255,255,.86);
+    }
+    .dotMini{width:8px;height:8px;border-radius:50%}
+    .dOk{background: rgba(74,222,128,.95); box-shadow:0 0 0 3px rgba(74,222,128,.10)}
+    .dWarn{background: rgba(251,191,36,.95); box-shadow:0 0 0 3px rgba(251,191,36,.10)}
+    .dBad{background: rgba(251,113,133,.95); box-shadow:0 0 0 3px rgba(251,113,133,.10)}
+
+    .codeBox{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.20);
+      border-radius: 16px;
+      padding:12px;
+      overflow:auto;
+      max-height: 420px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: rgba(255,255,255,.86);
+      white-space: pre;
+    }
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding:12px;
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:800;
+      color: rgba(255,255,255,.9);
+      list-style:none;
+    }
+    details summary::-webkit-details-marker{display:none}
+    .twocol{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr 1fr;
+      margin-top:12px;
+    }
+    @media (max-width: 900px){ .twocol{grid-template-columns:1fr} }
+    .shot{
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.18));
+      border-radius: 18px;
+      overflow:hidden;
+      position:relative;
+      min-height: 220px;
+    }
+    .shotTop{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:10px 12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background: rgba(5,8,20,.65);
+      backdrop-filter: blur(8px);
+      font-size:12.5px;
+      color: rgba(255,255,255,.78);
+    }
+    .shotBody{
+      padding:12px;
+    }
+    .fakeGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap:8px;
+      opacity:.95;
+    }
+    .cell{
+      height:14px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .cell.bad{background: rgba(251,113,133,.14); border-color: rgba(251,113,133,.18)}
+    .cell.warn{background: rgba(251,191,36,.14); border-color: rgba(251,191,36,.18)}
+    .cell.ok{background: rgba(74,222,128,.12); border-color: rgba(74,222,128,.16)}
+    .caption{
+      margin-top:10px;
+      color: var(--muted);
+      line-height:1.6;
+      font-size:13px;
+    }
   </style>
 </head>
 
@@ -434,6 +582,9 @@
 
           <!-- ✅ Micro işler PDF linki -->
           <a class="btn" id="microPdfBtnTop" href="Micro_Isler_Paketleri.pdf" target="_blank" rel="noopener" data-i18n="hero.microPdf">📦 Micro İşler PDF</a>
+
+          <!-- ✅ EK: Demo link -->
+          <a class="btn" href="#demo-clean" data-i18n="hero.demoCta">🧪 Data Cleaning Demo</a>
         </div>
 
         <div class="kpis">
@@ -501,6 +652,131 @@
               <div class="d" data-i18n="timeline.d4">Python ile veri bilimi, RNG & Loto AI Lab, siber güvenlik ve tersine mühendislik projeleri.</div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ EK: DATA CLEANING DEMO (Tek HTML içinde) -->
+    <section class="section" id="demo-clean">
+      <h3 data-i18n="demo.h">Demo</h3>
+      <h2 class="section-title" data-i18n="demo.title">Excel/CSV Temizleme — “Before / After”</h2>
+
+      <div class="note" data-i18n="demo.note">
+        Bu bölüm; LinkedIn/Instagram paylaşımına uygun şekilde “dağınık veri → temiz veri” dönüşümünü gösteren tek sayfalık bir demo.
+        Aşağıdan örnek “bozuk CSV” üret, temizle, kalite raporunu gör ve hem CSV hem de Python script’i indir.
+      </div>
+
+      <div class="demoGrid">
+        <div class="panel demoCol12">
+          <div class="panelHead">
+            <div style="min-width:260px">
+              <h4 data-i18n="demo.actions">Hızlı aksiyonlar</h4>
+              <div class="small" data-i18n="demo.actionsSub">Tek tıkla örnek üret • temizle • indir • raporu kopyala</div>
+            </div>
+            <div class="cta" style="margin:0">
+              <button class="btn btn-primary" id="btnGen" data-i18n="demo.btnGen">⚙️ Bozuk örnek veri üret</button>
+              <button class="btn" id="btnClean" data-i18n="demo.btnClean">🧼 Temizle</button>
+              <button class="btn" id="btnReset" data-i18n="demo.btnReset">↺ Sıfırla</button>
+              <button class="btn" id="btnDlDirty" data-i18n="demo.btnDlDirty">⬇️ Bozuk CSV indir</button>
+              <button class="btn" id="btnDlClean" data-i18n="demo.btnDlClean">⬇️ Temiz CSV indir</button>
+              <button class="btn" id="btnDlPy" data-i18n="demo.btnDlPy">⬇️ Python script indir</button>
+              <button class="btn" id="btnCopyReport" data-i18n="demo.btnCopyReport">📋 Raporu kopyala</button>
+            </div>
+          </div>
+
+          <div class="tagrow" id="demoBadges">
+            <span class="pill2"><span class="dotMini dWarn"></span> <span data-i18n="demo.badge1">Tarih formatı karmaşası</span></span>
+            <span class="pill2"><span class="dotMini dBad"></span> <span data-i18n="demo.badge2">Bozuk e-posta & para alanı</span></span>
+            <span class="pill2"><span class="dotMini dWarn"></span> <span data-i18n="demo.badge3">Duplicate + null değerler</span></span>
+            <span class="pill2"><span class="dotMini dOk"></span> <span data-i18n="demo.badge4">Temiz çıktı + kalite raporu</span></span>
+          </div>
+        </div>
+
+        <div class="panel demoCol6">
+          <div class="panelHead">
+            <h4 data-i18n="demo.before">BEFORE — dağınık veri (CSV)</h4>
+            <div class="small" id="dirtyMeta">—</div>
+          </div>
+          <div class="tableWrap">
+            <table id="dirtyTable" aria-label="dirty table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Email</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Country</th>
+                  <th>Channel</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel demoCol6">
+          <div class="panelHead">
+            <h4 data-i18n="demo.after">AFTER — temiz veri (CSV)</h4>
+            <div class="small" id="cleanMeta">—</div>
+          </div>
+          <div class="tableWrap">
+            <table id="cleanTable" aria-label="clean table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Email</th>
+                  <th>Date (YYYY-MM-DD)</th>
+                  <th>Amount (TRY)</th>
+                  <th>Country</th>
+                  <th>Channel</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel demoCol12">
+          <div class="panelHead">
+            <h4 data-i18n="demo.report">Kalite Raporu</h4>
+            <div class="small" data-i18n="demo.reportSub">Temizlik sonrası: kaç satır düzeldi, kaç duplicate kaldırıldı, kaç alan normalize edildi</div>
+          </div>
+          <div class="codeBox" id="reportBox">—</div>
+
+          <div class="twocol">
+            <div class="shot" aria-label="fake before screenshot">
+              <div class="shotTop">
+                <span data-i18n="demo.shotBefore">“Before” ekran görüntüsü (temsili)</span>
+                <span class="small">dirty.xlsx</span>
+              </div>
+              <div class="shotBody">
+                <div class="fakeGrid" id="fakeBefore"></div>
+                <div class="caption" data-i18n="demo.shotBeforeCap">
+                  Not: Bu görsel temsili bir “Excel görünümü”dür. LinkedIn/Instagram paylaşımında “dağınık tablo” hissini verir.
+                </div>
+              </div>
+            </div>
+
+            <div class="shot" aria-label="fake after screenshot">
+              <div class="shotTop">
+                <span data-i18n="demo.shotAfter">“After” ekran görüntüsü (temsili)</span>
+                <span class="small">clean.xlsx</span>
+              </div>
+              <div class="shotBody">
+                <div class="fakeGrid" id="fakeAfter"></div>
+                <div class="caption" data-i18n="demo.shotAfterCap">
+                  Not: Temizlik sonrası daha “standard” ve tutarlı görünüm (tarih/para/ülke kodları normalize).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <details style="margin-top:12px">
+            <summary data-i18n="demo.pythonSum">Python (Pandas) temizleme script’i — kopyala/indir</summary>
+            <div class="codeBox" id="pyBox" style="margin-top:12px">—</div>
+          </details>
         </div>
       </div>
     </section>
@@ -785,6 +1061,7 @@
         "hero.cta3":"📄 CV (TR) PDF",
         "hero.cta4":"🌍 CV (EN)",
         "hero.microPdf":"📦 Micro İşler PDF",
+        "hero.demoCta":"🧪 Data Cleaning Demo",
         "hero.k1":"Veri temizleme, EDA, raporlama, otomasyon",
         "hero.k2":"RNG motorları, testler, hibrit kolon üretimi",
         "hero.k3":"bundle.js analizi, seed/istemci riskleri",
@@ -885,7 +1162,34 @@
         "footer.note":"Menü: Bölümlere hızlı geçiş • TR/EN",
         "footer.services":"Hizmetler",
         "footer.projects":"Projeler",
-        "footer.contact":"İletişim"
+        "footer.contact":"İletişim",
+
+        /* ✅ DEMO i18n */
+        "demo.h":"Demo",
+        "demo.title":"Excel/CSV Temizleme — “Before / After”",
+        "demo.note":"Bu bölüm; LinkedIn/Instagram paylaşımına uygun şekilde “dağınık veri → temiz veri” dönüşümünü gösteren tek sayfalık bir demo. Aşağıdan örnek “bozuk CSV” üret, temizle, kalite raporunu gör ve hem CSV hem de Python script’i indir.",
+        "demo.actions":"Hızlı aksiyonlar",
+        "demo.actionsSub":"Tek tıkla örnek üret • temizle • indir • raporu kopyala",
+        "demo.btnGen":"⚙️ Bozuk örnek veri üret",
+        "demo.btnClean":"🧼 Temizle",
+        "demo.btnReset":"↺ Sıfırla",
+        "demo.btnDlDirty":"⬇️ Bozuk CSV indir",
+        "demo.btnDlClean":"⬇️ Temiz CSV indir",
+        "demo.btnDlPy":"⬇️ Python script indir",
+        "demo.btnCopyReport":"📋 Raporu kopyala",
+        "demo.badge1":"Tarih formatı karmaşası",
+        "demo.badge2":"Bozuk e-posta & para alanı",
+        "demo.badge3":"Duplicate + null değerler",
+        "demo.badge4":"Temiz çıktı + kalite raporu",
+        "demo.before":"BEFORE — dağınık veri (CSV)",
+        "demo.after":"AFTER — temiz veri (CSV)",
+        "demo.report":"Kalite Raporu",
+        "demo.reportSub":"Temizlik sonrası: kaç satır düzeldi, kaç duplicate kaldırıldı, kaç alan normalize edildi",
+        "demo.shotBefore":"“Before” ekran görüntüsü (temsili)",
+        "demo.shotAfter":"“After” ekran görüntüsü (temsili)",
+        "demo.shotBeforeCap":"Not: Bu görsel temsili bir “Excel görünümü”dür. LinkedIn/Instagram paylaşımında “dağınık tablo” hissini verir.",
+        "demo.shotAfterCap":"Not: Temizlik sonrası daha “standard” ve tutarlı görünüm (tarih/para/ülke kodları normalize).",
+        "demo.pythonSum":"Python (Pandas) temizleme script’i — kopyala/indir"
       },
 
       en: {
@@ -903,6 +1207,7 @@
         "hero.cta3":"📄 Resume (TR) PDF",
         "hero.cta4":"🌍 Resume (EN)",
         "hero.microPdf":"📦 Micro Projects PDF",
+        "hero.demoCta":"🧪 Data Cleaning Demo",
         "hero.k1":"Data cleaning, EDA, reporting, automation",
         "hero.k2":"RNG engines, testing, hybrid generators",
         "hero.k3":"bundle.js analysis, seed/client risks",
@@ -987,7 +1292,34 @@
         "footer.note":"Menu: quick navigation • TR/EN",
         "footer.services":"Services",
         "footer.projects":"Projects",
-        "footer.contact":"Contact"
+        "footer.contact":"Contact",
+
+        /* ✅ DEMO i18n */
+        "demo.h":"Demo",
+        "demo.title":"Excel/CSV Cleaning — “Before / After”",
+        "demo.note":"A single-page demo designed for LinkedIn/Instagram: “messy data → clean data”. Generate a broken sample CSV, clean it, view the quality report, and download both CSVs and the Python script.",
+        "demo.actions":"Quick actions",
+        "demo.actionsSub":"Generate • clean • download • copy report",
+        "demo.btnGen":"⚙️ Generate messy sample",
+        "demo.btnClean":"🧼 Clean",
+        "demo.btnReset":"↺ Reset",
+        "demo.btnDlDirty":"⬇️ Download messy CSV",
+        "demo.btnDlClean":"⬇️ Download clean CSV",
+        "demo.btnDlPy":"⬇️ Download Python script",
+        "demo.btnCopyReport":"📋 Copy report",
+        "demo.badge1":"Mixed date formats",
+        "demo.badge2":"Broken email & currency fields",
+        "demo.badge3":"Duplicates + null values",
+        "demo.badge4":"Clean output + quality report",
+        "demo.before":"BEFORE — messy data (CSV)",
+        "demo.after":"AFTER — cleaned data (CSV)",
+        "demo.report":"Quality Report",
+        "demo.reportSub":"After cleaning: fixed rows, removed duplicates, normalized fields",
+        "demo.shotBefore":"“Before” screenshot (mock)",
+        "demo.shotAfter":"“After” screenshot (mock)",
+        "demo.shotBeforeCap":"Note: This is a mock “Excel-like” screenshot for social posts.",
+        "demo.shotAfterCap":"Note: Cleaner, more standardized output (date/currency/country normalized).",
+        "demo.pythonSum":"Python (Pandas) cleaning script — copy/download"
       }
     };
 
@@ -1005,6 +1337,9 @@
       document.getElementById("btnTR").setAttribute("aria-pressed", isTR ? "true":"false");
       document.getElementById("btnEN").setAttribute("aria-pressed", isTR ? "false":"true");
       localStorage.setItem("lang", lang);
+
+      // toast text sync
+      toast.textContent = (lang === "en") ? "Copied" : "Kopyalandı";
     }
 
     // ---- menu button: toggle bottom quick nav bar
@@ -1054,6 +1389,719 @@
         shownOnce = true;
       }
     }, {passive:true});
+
+    /* ============================================================
+      ✅ DATA CLEANING DEMO (tek HTML)
+      - Bozuk CSV üret (random ama kontrollü)
+      - Temizle (normalize, dedupe, trim, fix email, date, amount)
+      - Tablo + rapor
+      - CSV ve Python script indir
+      - “Mock screenshot” grid
+    ============================================================ */
+
+    const demo = {
+      dirty: [],
+      clean: [],
+      stats: null
+    };
+
+    const $ = (id)=>document.getElementById(id);
+    const dirtyTbody = $("dirtyTable").querySelector("tbody");
+    const cleanTbody = $("cleanTable").querySelector("tbody");
+    const dirtyMeta = $("dirtyMeta");
+    const cleanMeta = $("cleanMeta");
+    const reportBox = $("reportBox");
+    const pyBox = $("pyBox");
+
+    function randInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+    function pick(arr){ return arr[randInt(0, arr.length-1)]; }
+
+    function maybe(p){ return Math.random()<p; }
+
+    function pad2(n){ return String(n).padStart(2,"0"); }
+
+    function formatDirtyDate(iso){
+      const [y,m,d] = iso.split("-");
+      const style = randInt(1,5);
+      if(style===1) return `${d}.${m}.${y}`;     // 31.12.2025
+      if(style===2) return `${d}/${m}/${y}`;     // 31/12/2025
+      if(style===3) return `${m}/${d}/${y}`;     // 12/31/2025
+      if(style===4) return `${y}/${m}/${d}`;     // 2025/12/31
+      return `${y}-${m}-${d}`;                   // 2025-12-31
+    }
+
+    function normalizeDate(s){
+      // returns YYYY-MM-DD or null
+      if(!s || !String(s).trim()) return null;
+      s = String(s).trim();
+
+      // YYYY-MM-DD or YYYY/MM/DD
+      let m = s.match(/^(\d{4})[-\/](\d{1,2})[-\/](\d{1,2})$/);
+      if(m){
+        const y=m[1], mo=pad2(m[2]), d=pad2(m[3]);
+        return `${y}-${mo}-${d}`;
+      }
+
+      // DD.MM.YYYY
+      m = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+      if(m){
+        const d=pad2(m[1]), mo=pad2(m[2]), y=m[3];
+        return `${y}-${mo}-${d}`;
+      }
+
+      // DD/MM/YYYY  OR  MM/DD/YYYY (ambiguous)
+      m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+      if(m){
+        const a=parseInt(m[1],10), b=parseInt(m[2],10), y=m[3];
+        // heuristic: if first part > 12 => must be DD/MM
+        if(a>12){
+          return `${y}-${pad2(b)}-${pad2(a)}`;
+        }
+        // if second part > 12 => must be MM/DD
+        if(b>12){
+          return `${y}-${pad2(a)}-${pad2(b)}`;
+        }
+        // fallback: treat as DD/MM (EU style)
+        return `${y}-${pad2(b)}-${pad2(a)}`;
+      }
+
+      return null;
+    }
+
+    function parseAmountTRY(x){
+      // accepts: "1.234,50", "1234,5", "1,234.50", "₺1.234,50", "1234.50", "  -  "
+      if(x==null) return null;
+      let s = String(x).trim();
+      if(!s || s==="-" || s==="—") return null;
+      s = s.replace(/[₺\s]/g,"");
+
+      // If contains both "." and "," decide which is decimal by last occurrence
+      const lastDot = s.lastIndexOf(".");
+      const lastCom = s.lastIndexOf(",");
+      if(lastDot>-1 && lastCom>-1){
+        if(lastCom > lastDot){
+          // 1.234,56 -> thousands "." decimal ","
+          s = s.replace(/\./g,"").replace(",",".");
+        }else{
+          // 1,234.56 -> thousands "," decimal "."
+          s = s.replace(/,/g,"");
+        }
+      }else if(lastCom>-1){
+        // "1234,56" -> decimal ","
+        s = s.replace(/\./g,"").replace(",",".");
+      }else{
+        // only dot or only digits -> ok, but remove thousands separators like "1.234"
+        // if dot appears multiple times => thousands
+        const dots = (s.match(/\./g)||[]).length;
+        if(dots>1) s = s.replace(/\./g,"");
+      }
+
+      const num = Number(s);
+      if(!Number.isFinite(num)) return null;
+      return Math.round(num*100)/100;
+    }
+
+    function normEmail(e, customer){
+      if(!e || !String(e).trim()) return null;
+      let s = String(e).trim().toLowerCase();
+
+      // common mistakes
+      s = s.replace(/\s+/g,"");
+      s = s.replace(/\(at\)|\[at\]|\sat\s/g,"@");
+      s = s.replace(/\(dot\)|\[dot\]|\sdot\s/g,".");
+      s = s.replace(/,+/g,".");
+      s = s.replace(/;+$/g,"");
+
+      // if missing @ but looks like name.domain
+      if(!s.includes("@") && s.includes(".")){
+        s = s.replace(/\.+/g,".");
+        // build from customer if needed
+        const user = (customer||"user").toLowerCase().replace(/[^a-z0-9]+/g,".").replace(/^\.+|\.+$/g,"");
+        s = `${user}@example.com`;
+      }
+
+      // fix double @@
+      s = s.replace(/@+/g,"@");
+
+      // validate basic
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+      return ok ? s : null;
+    }
+
+    function genCustomer(){
+      const names = ["Seyhan", "Ayşe", "Mehmet", "Elif", "Can", "Deniz", "Burak", "Zeynep", "Ece", "Murat", "Selin", "Ozan"];
+      const surn = ["Yılmaz", "Kaya", "Demir", "Şahin", "Çelik", "Aydın", "Arslan", "Koç", "Öztürk", "Polat", "Aksoy"];
+      let n = `${pick(names)} ${pick(surn)}`;
+      // messy extra spaces
+      if(maybe(.18)) n = "  " + n + " ";
+      if(maybe(.12)) n = n.replace(" ", "   ");
+      return n;
+    }
+
+    function genEmail(customer){
+      if(maybe(.22)) return "";                // missing
+      const base = (customer||"user").toLowerCase().replace(/[^a-z0-9]+/g,".").replace(/^\.+|\.+$/g,"");
+      const domains = ["gmail.com","outlook.com","company.com","yahoo.com","hotmail.com"];
+      let e = `${base}@${pick(domains)}`;
+      if(maybe(.12)) e = e.replace("@"," (at) ");  // (at)
+      if(maybe(.10)) e = e.replace("."," (dot) "); // (dot)
+      if(maybe(.10)) e = e.replace("@", "@@");     // double @
+      if(maybe(.08)) e = e.replace(".", ",");      // comma instead dot
+      if(maybe(.06)) e = " " + e + " ";            // extra spaces
+      return e;
+    }
+
+    function genAmount(){
+      if(maybe(.14)) return "-";
+      const val = (Math.random()*25000 + 25);
+      const as = (Math.round(val*100)/100);
+
+      const style = randInt(1,5);
+      if(style===1){
+        // TR: 1.234,56
+        const parts = as.toFixed(2).split(".");
+        const int = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
+        return `₺${int},${parts[1]}`;
+      }
+      if(style===2){
+        // US: 1,234.56
+        const parts = as.toFixed(2).split(".");
+        const int = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");
+        return `${int}.${parts[1]}`;
+      }
+      if(style===3){
+        // plain with comma
+        return as.toFixed(2).replace(".",",");
+      }
+      if(style===4){
+        // no decimals
+        return String(Math.round(as)).replace(/\B(?=(\d{3})+(?!\d))/g,".");
+      }
+      return "  " + as.toFixed(2) + " ";
+    }
+
+    function genCountry(){
+      const raw = ["TR", "Türkiye", "TURKEY", "tr ", " Turkey ", "DE", "Germany", "UK", "United Kingdom"];
+      return pick(raw);
+    }
+
+    function normCountry(c){
+      if(!c) return null;
+      let s = String(c).trim().toUpperCase();
+      if(s==="TÜRKİYE" || s==="TURKEY" || s==="TR") return "TR";
+      if(s==="GERMANY" || s==="DE") return "DE";
+      if(s==="UNITED KINGDOM" || s==="UK") return "UK";
+      return s.slice(0,2) || null;
+    }
+
+    function genChannel(){
+      const raw = ["web", "WEB", "Mobile", "mobile ", "Call Center", "call-center", "Store", "store", "Partner"];
+      return pick(raw);
+    }
+
+    function normChannel(ch){
+      if(!ch) return null;
+      let s = String(ch).trim().toLowerCase();
+      s = s.replace(/[\s_]+/g," ").replace(/-+/g,"-");
+      if(s==="call center" || s==="call-center") return "call_center";
+      if(s==="web") return "web";
+      if(s==="mobile") return "mobile";
+      if(s==="store") return "store";
+      if(s==="partner") return "partner";
+      return s.replace(/\s+/g,"_");
+    }
+
+    function makeDirty(n=140){
+      const start = new Date();
+      demo.dirty = [];
+      const baseYear = 2025;
+
+      for(let i=1;i<=n;i++){
+        const customer = genCustomer();
+        const d = new Date(baseYear, randInt(0,11), randInt(1,28));
+        const iso = `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+        let email = genEmail(customer);
+        let date = formatDirtyDate(iso);
+        let amount = genAmount();
+        let country = genCountry();
+        let channel = genChannel();
+
+        const row = {
+          id: (maybe(.08) ? String(i) : String(i).padStart(5,"0")),   // sometimes not padded
+          customer,
+          email,
+          date: maybe(.08) ? "" : date,
+          amount,
+          country,
+          channel
+        };
+
+        demo.dirty.push(row);
+
+        // duplicates
+        if(maybe(.07)){
+          const dup = {...row};
+          // slight changes
+          if(maybe(.4)) dup.amount = genAmount();
+          demo.dirty.push(dup);
+        }
+      }
+
+      // shuffle a bit
+      demo.dirty.sort(()=>Math.random()-0.5);
+
+      const ms = Date.now()-start.getTime();
+      dirtyMeta.textContent = `${demo.dirty.length} rows • generated in ${ms} ms`;
+    }
+
+    function cleanData(){
+      if(!demo.dirty.length) return;
+
+      const start = Date.now();
+      const seen = new Set();
+
+      let removedDup = 0, fixedEmail=0, fixedDate=0, fixedAmount=0, fixedName=0, fixedCountry=0, fixedChannel=0, nullEmail=0, nullDate=0, nullAmount=0;
+
+      const out = [];
+
+      for(const r of demo.dirty){
+        const id = String(r.id||"").trim();
+        let customer = String(r.customer||"").replace(/\s+/g," ").trim();
+        if(customer !== String(r.customer||"")) fixedName++;
+
+        let email = normEmail(r.email, customer);
+        if(!email) nullEmail++;
+        else if(String(r.email||"").trim().toLowerCase() !== email) fixedEmail++;
+
+        let date = normalizeDate(r.date);
+        if(!date) nullDate++;
+        else if(String(r.date||"").trim() !== date) fixedDate++;
+
+        let amount = parseAmountTRY(r.amount);
+        if(amount==null) nullAmount++;
+        else fixedAmount++;
+
+        let country = normCountry(r.country);
+        if(country && String(r.country||"").trim().toUpperCase() !== country) fixedCountry++;
+
+        let channel = normChannel(r.channel);
+        if(channel && String(r.channel||"").trim().toLowerCase() !== channel) fixedChannel++;
+
+        // Dedup key (id + email + date + amount)
+        const key = [id, email||"", date||"", amount==null?"":amount.toFixed(2), country||"", channel||""].join("|");
+        if(seen.has(key)){
+          removedDup++;
+          continue;
+        }
+        seen.add(key);
+
+        out.push({
+          id: id.padStart(5,"0") || null,
+          customer: customer || null,
+          email,
+          date,
+          amount: amount==null ? null : amount.toFixed(2),
+          country: country || null,
+          channel: channel || null
+        });
+      }
+
+      demo.clean = out;
+
+      const ms = Date.now()-start;
+      cleanMeta.textContent = `${demo.clean.length} rows • cleaned in ${ms} ms`;
+
+      demo.stats = {
+        input: demo.dirty.length,
+        output: demo.clean.length,
+        removedDup,
+        nullEmail, nullDate, nullAmount,
+        fixedEmail, fixedDate, fixedAmount,
+        fixedName, fixedCountry, fixedChannel
+      };
+
+      renderReport();
+    }
+
+    function renderTable(tbody, rows){
+      tbody.innerHTML = "";
+      const frag = document.createDocumentFragment();
+      const limit = Math.min(rows.length, 220); // keep UI snappy
+      for(let i=0;i<limit;i++){
+        const r = rows[i];
+        const tr = document.createElement("tr");
+        const cols = ["id","customer","email","date","amount","country","channel"];
+        cols.forEach(k=>{
+          const td = document.createElement("td");
+          td.textContent = (r[k] == null ? "" : String(r[k]));
+          tr.appendChild(td);
+        });
+        frag.appendChild(tr);
+      }
+      tbody.appendChild(frag);
+    }
+
+    function renderReport(){
+      const s = demo.stats;
+      if(!s){
+        reportBox.textContent = "—";
+        return;
+      }
+
+      const lines = [];
+      const lang = document.documentElement.lang === "en" ? "en" : "tr";
+
+      if(lang==="tr"){
+        lines.push("DATA CLEANING QUALITY REPORT");
+        lines.push("------------------------------------------------------------");
+        lines.push(`Girdi satır:            ${s.input}`);
+        lines.push(`Çıktı satır:            ${s.output}`);
+        lines.push(`Kaldırılan duplicate:   ${s.removedDup}`);
+        lines.push("");
+        lines.push("Alan kalitesi:");
+        lines.push(`- Email:  düzeltildi ${s.fixedEmail}, boş/invalid ${s.nullEmail}`);
+        lines.push(`- Tarih:  düzeltildi ${s.fixedDate}, boş/invalid ${s.nullDate}`);
+        lines.push(`- Tutar:  parse edildi ${s.fixedAmount}, boş/invalid ${s.nullAmount}`);
+        lines.push(`- İsim:   normalize ${s.fixedName}`);
+        lines.push(`- Ülke:   normalize ${s.fixedCountry}`);
+        lines.push(`- Kanal:  normalize ${s.fixedChannel}`);
+        lines.push("");
+        lines.push("Örnek standartlar:");
+        lines.push("- date   => YYYY-MM-DD");
+        lines.push("- amount => 2 ondalık, TRY formatına uygun");
+        lines.push("- country=> TR/DE/UK gibi kodlar");
+        lines.push("- channel=> web/mobile/call_center...");
+        lines.push("");
+        lines.push("Teslim:");
+        lines.push("- clean.csv (temiz veri)");
+        lines.push("- cleaning.py (Python/Pandas script)");
+      }else{
+        lines.push("DATA CLEANING QUALITY REPORT");
+        lines.push("------------------------------------------------------------");
+        lines.push(`Input rows:             ${s.input}`);
+        lines.push(`Output rows:            ${s.output}`);
+        lines.push(`Duplicates removed:     ${s.removedDup}`);
+        lines.push("");
+        lines.push("Field quality:");
+        lines.push(`- Email:  fixed ${s.fixedEmail}, empty/invalid ${s.nullEmail}`);
+        lines.push(`- Date:   fixed ${s.fixedDate}, empty/invalid ${s.nullDate}`);
+        lines.push(`- Amount: parsed ${s.fixedAmount}, empty/invalid ${s.nullAmount}`);
+        lines.push(`- Name:   normalized ${s.fixedName}`);
+        lines.push(`- Country normalized ${s.fixedCountry}`);
+        lines.push(`- Channel normalized ${s.fixedChannel}`);
+        lines.push("");
+        lines.push("Standards:");
+        lines.push("- date   => YYYY-MM-DD");
+        lines.push("- amount => 2 decimals");
+        lines.push("- country=> ISO-like codes (TR/DE/UK)");
+        lines.push("- channel=> web/mobile/call_center...");
+        lines.push("");
+        lines.push("Deliverables:");
+        lines.push("- clean.csv");
+        lines.push("- cleaning.py (Python/Pandas script)");
+      }
+
+      reportBox.textContent = lines.join("\n");
+    }
+
+    function toCSV(rows){
+      const cols = ["id","customer","email","date","amount","country","channel"];
+      const esc = (v)=>{
+        const s = (v==null ? "" : String(v));
+        if(/[",\n]/.test(s)) return `"${s.replace(/"/g,'""')}"`;
+        return s;
+      };
+      const head = cols.join(",");
+      const body = rows.map(r=>cols.map(c=>esc(r[c])).join(",")).join("\n");
+      return head + "\n" + body + "\n";
+    }
+
+    function downloadText(filename, text, mime="text/plain"){
+      const blob = new Blob([text], {type:mime});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url), 1500);
+    }
+
+    function getPythonScript(){
+      return `# -*- coding: utf-8 -*-
+"""
+Seyhan Çınar — Excel/CSV Data Cleaning (Micro Package)
+-----------------------------------------------------
+Input : dirty.csv
+Output: clean.csv + quality_report.txt
+
+Usage:
+  pip install pandas openpyxl
+  python cleaning.py
+
+Notes:
+- Dates normalized to YYYY-MM-DD
+- Amount parsed to float with 2 decimals
+- Country codes normalized (TR/DE/UK...)
+- Duplicates removed
+"""
+
+import re
+import pandas as pd
+
+INPUT_CSV = "dirty.csv"
+OUTPUT_CSV = "clean.csv"
+REPORT_TXT = "quality_report.txt"
+
+def normalize_date(x):
+    if pd.isna(x) or str(x).strip()=="":
+        return pd.NA
+    s = str(x).strip()
+
+    # YYYY-MM-DD or YYYY/MM/DD
+    m = re.match(r"^(\\d{4})[-/](\\d{1,2})[-/](\\d{1,2})$", s)
+    if m:
+        y, mo, d = m.group(1), int(m.group(2)), int(m.group(3))
+        return f"{y}-{mo:02d}-{d:02d}"
+
+    # DD.MM.YYYY
+    m = re.match(r"^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})$", s)
+    if m:
+        d, mo, y = int(m.group(1)), int(m.group(2)), m.group(3)
+        return f"{y}-{mo:02d}-{d:02d}"
+
+    # DD/MM/YYYY or MM/DD/YYYY (heuristic)
+    m = re.match(r"^(\\d{1,2})/(\\d{1,2})/(\\d{4})$", s)
+    if m:
+        a, b, y = int(m.group(1)), int(m.group(2)), m.group(3)
+        if a > 12:
+            d, mo = a, b
+        elif b > 12:
+            mo, d = a, b
+        else:
+            d, mo = a, b  # EU default
+        return f"{y}-{mo:02d}-{d:02d}"
+
+    return pd.NA
+
+def parse_amount_try(x):
+    if pd.isna(x):
+        return pd.NA
+    s = str(x).strip()
+    if s in ("", "-", "—"):
+        return pd.NA
+    s = s.replace("₺","").replace(" ","")
+
+    last_dot = s.rfind(".")
+    last_com = s.rfind(",")
+
+    if last_dot>-1 and last_com>-1:
+        if last_com > last_dot:
+            # 1.234,56 -> 1234.56
+            s = s.replace(".","").replace(",",".")
+        else:
+            # 1,234.56 -> 1234.56
+            s = s.replace(",","")
+    elif last_com>-1:
+        s = s.replace(".","").replace(",",".")
+    else:
+        if s.count(".")>1:
+            s = s.replace(".","")
+
+    try:
+        return round(float(s), 2)
+    except:
+        return pd.NA
+
+def norm_country(x):
+    if pd.isna(x) or str(x).strip()=="":
+        return pd.NA
+    s = str(x).strip().upper()
+    if s in ("TÜRKİYE","TURKEY","TR"):
+        return "TR"
+    if s in ("GERMANY","DE"):
+        return "DE"
+    if s in ("UNITED KINGDOM","UK"):
+        return "UK"
+    return s[:2]
+
+def norm_channel(x):
+    if pd.isna(x) or str(x).strip()=="":
+        return pd.NA
+    s = str(x).strip().lower()
+    s = re.sub(r"[\\s_]+", " ", s)
+    s = re.sub(r"-+", "-", s)
+    if s in ("call center","call-center"):
+        return "call_center"
+    if s in ("web","mobile","store","partner"):
+        return s
+    return s.replace(" ", "_")
+
+def norm_email(x, customer="user"):
+    if pd.isna(x) or str(x).strip()=="":
+        return pd.NA
+    s = str(x).strip().lower()
+    s = re.sub(r"\\s+","",s)
+    s = re.sub(r"(\\(at\\)|\\[at\\]|\\sat\\s)","@",s)
+    s = re.sub(r"(\\(dot\\)|\\[dot\\]|\\sdot\\s)",".",s)
+    s = re.sub(r",+",".",s)
+    s = re.sub(r"@+","@",s)
+
+    # validate
+    if re.match(r"^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", s):
+        return s
+    return pd.NA
+
+def main():
+    df = pd.read_csv(INPUT_CSV, dtype=str, keep_default_na=False)
+
+    before_rows = len(df)
+
+    # normalize
+    df["id"] = df["id"].astype(str).str.strip().str.zfill(5)
+    df["customer"] = df["customer"].astype(str).str.replace(r"\\s+"," ", regex=True).str.strip()
+
+    df["email"] = [norm_email(e, c) for e, c in zip(df["email"], df["customer"])]
+    df["date"] = df["date"].apply(normalize_date)
+    df["amount"] = df["amount"].apply(parse_amount_try)
+    df["country"] = df["country"].apply(norm_country)
+    df["channel"] = df["channel"].apply(norm_channel)
+
+    # drop duplicates
+    df2 = df.drop_duplicates(subset=["id","email","date","amount","country","channel"], keep="first")
+    after_rows = len(df2)
+
+    # export
+    df2.to_csv(OUTPUT_CSV, index=False)
+
+    # report
+    with open(REPORT_TXT, "w", encoding="utf-8") as f:
+        f.write("DATA CLEANING QUALITY REPORT\\n")
+        f.write("----------------------------------------\\n")
+        f.write(f"Input rows: {before_rows}\\n")
+        f.write(f"Output rows: {after_rows}\\n")
+        f.write(f"Duplicates removed: {before_rows - after_rows}\\n")
+
+    print("Done.")
+    print(f"- {OUTPUT_CSV}")
+    print(f"- {REPORT_TXT}")
+
+if __name__ == "__main__":
+    main()
+`;
+    }
+
+    function renderPython(){
+      pyBox.textContent = getPythonScript();
+    }
+
+    function seedFakeShots(){
+      const before = $("fakeBefore");
+      const after = $("fakeAfter");
+      before.innerHTML = "";
+      after.innerHTML = "";
+
+      // 4 cols grid, 8 rows
+      const total = 4 * 10;
+
+      for(let i=0;i<total;i++){
+        const c = document.createElement("div");
+        c.className = "cell " + (maybe(.14) ? "bad" : (maybe(.18) ? "warn" : ""));
+        before.appendChild(c);
+      }
+      for(let i=0;i<total;i++){
+        const c = document.createElement("div");
+        c.className = "cell " + (maybe(.08) ? "warn" : "ok");
+        after.appendChild(c);
+      }
+    }
+
+    function resetDemo(){
+      demo.dirty = [];
+      demo.clean = [];
+      demo.stats = null;
+      dirtyTbody.innerHTML = "";
+      cleanTbody.innerHTML = "";
+      dirtyMeta.textContent = "—";
+      cleanMeta.textContent = "—";
+      reportBox.textContent = "—";
+      renderPython();
+      seedFakeShots();
+    }
+
+    // --- buttons
+    $("btnGen").addEventListener("click", ()=>{
+      makeDirty(160);
+      renderTable(dirtyTbody, demo.dirty);
+      demo.clean = [];
+      demo.stats = null;
+      cleanTbody.innerHTML = "";
+      cleanMeta.textContent = "—";
+      reportBox.textContent = (document.documentElement.lang==="en")
+        ? "Generated messy data. Click “Clean”."
+        : "Bozuk veri üretildi. “Temizle”ye bas.";
+      seedFakeShots();
+      showToast(document.documentElement.lang==="en" ? "Generated" : "Üretildi");
+    });
+
+    $("btnClean").addEventListener("click", ()=>{
+      if(!demo.dirty.length){
+        showToast(document.documentElement.lang==="en" ? "Generate sample first" : "Önce örnek üret");
+        return;
+      }
+      cleanData();
+      renderTable(cleanTbody, demo.clean);
+      seedFakeShots();
+      showToast(document.documentElement.lang==="en" ? "Cleaned" : "Temizlendi");
+    });
+
+    $("btnReset").addEventListener("click", ()=>{
+      resetDemo();
+      showToast(document.documentElement.lang==="en" ? "Reset" : "Sıfırlandı");
+    });
+
+    $("btnDlDirty").addEventListener("click", ()=>{
+      if(!demo.dirty.length){
+        showToast(document.documentElement.lang==="en" ? "Generate sample first" : "Önce örnek üret");
+        return;
+      }
+      downloadText("dirty.csv", toCSV(demo.dirty), "text/csv;charset=utf-8");
+    });
+
+    $("btnDlClean").addEventListener("click", ()=>{
+      if(!demo.clean.length){
+        showToast(document.documentElement.lang==="en" ? "Clean first" : "Önce temizle");
+        return;
+      }
+      downloadText("clean.csv", toCSV(demo.clean), "text/csv;charset=utf-8");
+    });
+
+    $("btnDlPy").addEventListener("click", ()=>{
+      downloadText("cleaning.py", getPythonScript(), "text/x-python;charset=utf-8");
+    });
+
+    $("btnCopyReport").addEventListener("click", async ()=>{
+      const txt = reportBox.textContent || "";
+      if(!txt || txt==="—"){
+        showToast(document.documentElement.lang==="en" ? "No report yet" : "Rapor yok");
+        return;
+      }
+      try{
+        await navigator.clipboard.writeText(txt);
+        showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
+      }catch(e){
+        const ta = document.createElement("textarea");
+        ta.value = txt; document.body.appendChild(ta);
+        ta.select(); document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
+      }
+    });
+
+    // init demo
+    renderPython();
+    seedFakeShots();
   </script>
 </body>
 </html>
