@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#081327" />
-
   <title>Seyhan Çınar • Software Consultant • Data Analytics • RNG Lab</title>
   <meta name="description" content="Seyhan Çınar — Software Consultant. Python ile Excel/CSV veri temizleme, raporlama ve otomasyon. Data Analytics • RNG Lab • Security & Reverse Engineering • Workshops." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -448,7 +447,7 @@
     .dotMini{width:8px;height:8px;border-radius:50%}
     .dOk{background: rgba(74,222,128,.95); box-shadow:0 0 0 3px rgba(74,222,128,.10)}
     .dWarn{background: rgba(251,191,36,.95); box-shadow:0 0 0 3px rgba(251,191,36,.10)}
-    .dBad{background: rgba(251,113,133,.95); box-shadow:0 0 0 3px rgba(251,113,133,.10)}
+    .dBad{background: rgba(251,113,133,.95); box-shadow:0 0 0 3px rgba(251,113,133,.95); box-shadow:0 0 0 3px rgba(251,113,133,.10)}
 
     .codeBox{
       border:1px solid rgba(255,255,255,.10);
@@ -541,7 +540,6 @@
 
         <div class="controls">
           <button class="btn" id="menuBtn" title="Menu / Menü">☰ <span data-i18n="top.menu">Menü</span></button>
-
           <div class="seg" role="group" aria-label="Language">
             <button id="btnTR" aria-pressed="true">🇹🇷 <span>TR</span></button>
             <button id="btnEN" aria-pressed="false">🇬🇧 <span>EN</span></button>
@@ -663,7 +661,7 @@
 
       <div class="note" data-i18n="demo.note">
         Bu bölüm; LinkedIn/Instagram paylaşımına uygun şekilde “dağınık veri → temiz veri” dönüşümünü gösteren tek sayfalık bir demo.
-        Aşağıdan örnek “bozuk CSV” üret, temizle, kalite raporunu gör ve hem CSV hem de Python script’i indir.
+        Aşağıdan örnek “bozuk CSV” üret, temizle, kalite raporunu gör ve CSV dosyalarını indir.
       </div>
 
       <div class="demoGrid">
@@ -679,7 +677,7 @@
               <button class="btn" id="btnReset" data-i18n="demo.btnReset">↺ Sıfırla</button>
               <button class="btn" id="btnDlDirty" data-i18n="demo.btnDlDirty">⬇️ Bozuk CSV indir</button>
               <button class="btn" id="btnDlClean" data-i18n="demo.btnDlClean">⬇️ Temiz CSV indir</button>
-              <button class="btn" id="btnDlPy" data-i18n="demo.btnDlPy">⬇️ Python script indir</button>
+              <!-- ✅ KALDIRILDI: Python script indir butonu -->
               <button class="btn" id="btnCopyReport" data-i18n="demo.btnCopyReport">📋 Raporu kopyala</button>
             </div>
           </div>
@@ -774,7 +772,7 @@
           </div>
 
           <details style="margin-top:12px">
-            <summary data-i18n="demo.pythonSum">Python (Pandas) temizleme script’i — kopyala/indir</summary>
+            <summary data-i18n="demo.pythonSum">Python (Pandas) temizleme script’i — görüntüle/kopyala</summary>
             <div class="codeBox" id="pyBox" style="margin-top:12px">—</div>
           </details>
         </div>
@@ -1016,9 +1014,7 @@
   <div class="footerbar" id="footerbar" hidden>
     <div class="inner">
       <div class="left">
-        <span class="footnote" data-i18n="footer.note">
-          Menü: Bölümlere hızlı geçiş • TR/EN
-        </span>
+        <span class="footnote" data-i18n="footer.note">Menü: Bölümlere hızlı geçiş • TR/EN</span>
       </div>
       <div style="display:flex; gap:8px; align-items:center">
         <a class="btn" href="#services" data-i18n="footer.services">Hizmetler</a>
@@ -1038,7 +1034,7 @@
       micro_pdf: "Micro_Isler_Paketleri.pdf"
     };
 
-    // Linkleri güvenli şekilde set et (dosya adını değiştirmek istersen sadece yukarıyı değiştir)
+    // Linkleri güvenli şekilde set et
     document.getElementById("cvTrBtn").setAttribute("href", FILES.cv_tr);
     document.getElementById("cvEnBtn").setAttribute("href", FILES.cv_en);
     document.getElementById("microPdfBtn").setAttribute("href", FILES.micro_pdf);
@@ -1164,10 +1160,10 @@
         "footer.projects":"Projeler",
         "footer.contact":"İletişim",
 
-        /* ✅ DEMO i18n */
+        /* ✅ DEMO i18n (Python indir yok) */
         "demo.h":"Demo",
         "demo.title":"Excel/CSV Temizleme — “Before / After”",
-        "demo.note":"Bu bölüm; LinkedIn/Instagram paylaşımına uygun şekilde “dağınık veri → temiz veri” dönüşümünü gösteren tek sayfalık bir demo. Aşağıdan örnek “bozuk CSV” üret, temizle, kalite raporunu gör ve hem CSV hem de Python script’i indir.",
+        "demo.note":"Bu bölüm; LinkedIn/Instagram paylaşımına uygun şekilde “dağınık veri → temiz veri” dönüşümünü gösteren tek sayfalık bir demo. Aşağıdan örnek “bozuk CSV” üret, temizle, kalite raporunu gör ve CSV dosyalarını indir.",
         "demo.actions":"Hızlı aksiyonlar",
         "demo.actionsSub":"Tek tıkla örnek üret • temizle • indir • raporu kopyala",
         "demo.btnGen":"⚙️ Bozuk örnek veri üret",
@@ -1175,7 +1171,6 @@
         "demo.btnReset":"↺ Sıfırla",
         "demo.btnDlDirty":"⬇️ Bozuk CSV indir",
         "demo.btnDlClean":"⬇️ Temiz CSV indir",
-        "demo.btnDlPy":"⬇️ Python script indir",
         "demo.btnCopyReport":"📋 Raporu kopyala",
         "demo.badge1":"Tarih formatı karmaşası",
         "demo.badge2":"Bozuk e-posta & para alanı",
@@ -1189,7 +1184,7 @@
         "demo.shotAfter":"“After” ekran görüntüsü (temsili)",
         "demo.shotBeforeCap":"Not: Bu görsel temsili bir “Excel görünümü”dür. LinkedIn/Instagram paylaşımında “dağınık tablo” hissini verir.",
         "demo.shotAfterCap":"Not: Temizlik sonrası daha “standard” ve tutarlı görünüm (tarih/para/ülke kodları normalize).",
-        "demo.pythonSum":"Python (Pandas) temizleme script’i — kopyala/indir"
+        "demo.pythonSum":"Python (Pandas) temizleme script’i — görüntüle/kopyala"
       },
 
       en: {
@@ -1294,10 +1289,10 @@
         "footer.projects":"Projects",
         "footer.contact":"Contact",
 
-        /* ✅ DEMO i18n */
+        /* ✅ DEMO i18n (Python download removed) */
         "demo.h":"Demo",
         "demo.title":"Excel/CSV Cleaning — “Before / After”",
-        "demo.note":"A single-page demo designed for LinkedIn/Instagram: “messy data → clean data”. Generate a broken sample CSV, clean it, view the quality report, and download both CSVs and the Python script.",
+        "demo.note":"A single-page demo designed for LinkedIn/Instagram: “messy data → clean data”. Generate a broken sample CSV, clean it, view the quality report, and download the CSV files.",
         "demo.actions":"Quick actions",
         "demo.actionsSub":"Generate • clean • download • copy report",
         "demo.btnGen":"⚙️ Generate messy sample",
@@ -1305,7 +1300,6 @@
         "demo.btnReset":"↺ Reset",
         "demo.btnDlDirty":"⬇️ Download messy CSV",
         "demo.btnDlClean":"⬇️ Download clean CSV",
-        "demo.btnDlPy":"⬇️ Download Python script",
         "demo.btnCopyReport":"📋 Copy report",
         "demo.badge1":"Mixed date formats",
         "demo.badge2":"Broken email & currency fields",
@@ -1319,7 +1313,7 @@
         "demo.shotAfter":"“After” screenshot (mock)",
         "demo.shotBeforeCap":"Note: This is a mock “Excel-like” screenshot for social posts.",
         "demo.shotAfterCap":"Note: Cleaner, more standardized output (date/currency/country normalized).",
-        "demo.pythonSum":"Python (Pandas) cleaning script — copy/download"
+        "demo.pythonSum":"Python (Pandas) cleaning script — view/copy"
       }
     };
 
@@ -1338,7 +1332,6 @@
       document.getElementById("btnEN").setAttribute("aria-pressed", isTR ? "false":"true");
       localStorage.setItem("lang", lang);
 
-      // toast text sync
       toast.textContent = (lang === "en") ? "Copied" : "Kopyalandı";
     }
 
@@ -1351,13 +1344,15 @@
       }
     });
 
-    // ---- copy mail
+    // ---- toast
     const toast = document.getElementById("toast");
     function showToast(msg){
       toast.textContent = msg;
       toast.classList.add("show");
       setTimeout(()=>toast.classList.remove("show"), 1400);
     }
+
+    // ---- copy mail
     document.getElementById("copyMailBtn").addEventListener("click", async ()=>{
       const mail = document.getElementById("mailText").textContent.trim();
       try{
@@ -1380,7 +1375,7 @@
     const saved = localStorage.getItem("lang");
     setLang(saved || "tr");
 
-    // ---- show bottom bar automatically on scroll a bit (nice UX)
+    // ---- show bottom bar automatically on scroll a bit
     let shownOnce = false;
     window.addEventListener("scroll", ()=>{
       if(shownOnce) return;
@@ -1392,11 +1387,12 @@
 
     /* ============================================================
       ✅ DATA CLEANING DEMO (tek HTML)
-      - Bozuk CSV üret (random ama kontrollü)
-      - Temizle (normalize, dedupe, trim, fix email, date, amount)
+      - Bozuk CSV üret
+      - Temizle
       - Tablo + rapor
-      - CSV ve Python script indir
+      - CSV indir + raporu kopyala
       - “Mock screenshot” grid
+      - ✅ Python script indir butonu KALDIRILDI
     ============================================================ */
 
     const demo = {
@@ -1415,9 +1411,7 @@
 
     function randInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
     function pick(arr){ return arr[randInt(0, arr.length-1)]; }
-
     function maybe(p){ return Math.random()<p; }
-
     function pad2(n){ return String(n).padStart(2,"0"); }
 
     function formatDirtyDate(iso){
@@ -1431,7 +1425,6 @@
     }
 
     function normalizeDate(s){
-      // returns YYYY-MM-DD or null
       if(!s || !String(s).trim()) return null;
       s = String(s).trim();
 
@@ -1453,45 +1446,31 @@
       m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
       if(m){
         const a=parseInt(m[1],10), b=parseInt(m[2],10), y=m[3];
-        // heuristic: if first part > 12 => must be DD/MM
-        if(a>12){
-          return `${y}-${pad2(b)}-${pad2(a)}`;
-        }
-        // if second part > 12 => must be MM/DD
-        if(b>12){
-          return `${y}-${pad2(a)}-${pad2(b)}`;
-        }
-        // fallback: treat as DD/MM (EU style)
-        return `${y}-${pad2(b)}-${pad2(a)}`;
+        if(a>12) return `${y}-${pad2(b)}-${pad2(a)}`;     // DD/MM
+        if(b>12) return `${y}-${pad2(a)}-${pad2(b)}`;     // MM/DD
+        return `${y}-${pad2(b)}-${pad2(a)}`;              // fallback DD/MM
       }
 
       return null;
     }
 
     function parseAmountTRY(x){
-      // accepts: "1.234,50", "1234,5", "1,234.50", "₺1.234,50", "1234.50", "  -  "
       if(x==null) return null;
       let s = String(x).trim();
       if(!s || s==="-" || s==="—") return null;
       s = s.replace(/[₺\s]/g,"");
 
-      // If contains both "." and "," decide which is decimal by last occurrence
       const lastDot = s.lastIndexOf(".");
       const lastCom = s.lastIndexOf(",");
       if(lastDot>-1 && lastCom>-1){
         if(lastCom > lastDot){
-          // 1.234,56 -> thousands "." decimal ","
-          s = s.replace(/\./g,"").replace(",",".");
+          s = s.replace(/\./g,"").replace(",","."); // 1.234,56
         }else{
-          // 1,234.56 -> thousands "," decimal "."
-          s = s.replace(/,/g,"");
+          s = s.replace(/,/g,"");                  // 1,234.56
         }
       }else if(lastCom>-1){
-        // "1234,56" -> decimal ","
-        s = s.replace(/\./g,"").replace(",",".");
+        s = s.replace(/\./g,"").replace(",",".");  // 1234,56
       }else{
-        // only dot or only digits -> ok, but remove thousands separators like "1.234"
-        // if dot appears multiple times => thousands
         const dots = (s.match(/\./g)||[]).length;
         if(dots>1) s = s.replace(/\./g,"");
       }
@@ -1505,25 +1484,18 @@
       if(!e || !String(e).trim()) return null;
       let s = String(e).trim().toLowerCase();
 
-      // common mistakes
       s = s.replace(/\s+/g,"");
-      s = s.replace(/\(at\)|\[at\]|\sat\s/g,"@");
-      s = s.replace(/\(dot\)|\[dot\]|\sdot\s/g,".");
+      s = s.replace(/\(at\)|\sat\s/g,"@");
+      s = s.replace(/\(dot\)|\sdot\s/g,".");
       s = s.replace(/,+/g,".");
       s = s.replace(/;+$/g,"");
 
-      // if missing @ but looks like name.domain
       if(!s.includes("@") && s.includes(".")){
-        s = s.replace(/\.+/g,".");
-        // build from customer if needed
         const user = (customer||"user").toLowerCase().replace(/[^a-z0-9]+/g,".").replace(/^\.+|\.+$/g,"");
         s = `${user}@example.com`;
       }
 
-      // fix double @@
       s = s.replace(/@+/g,"@");
-
-      // validate basic
       const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
       return ok ? s : null;
     }
@@ -1532,22 +1504,21 @@
       const names = ["Seyhan", "Ayşe", "Mehmet", "Elif", "Can", "Deniz", "Burak", "Zeynep", "Ece", "Murat", "Selin", "Ozan"];
       const surn = ["Yılmaz", "Kaya", "Demir", "Şahin", "Çelik", "Aydın", "Arslan", "Koç", "Öztürk", "Polat", "Aksoy"];
       let n = `${pick(names)} ${pick(surn)}`;
-      // messy extra spaces
       if(maybe(.18)) n = "  " + n + " ";
       if(maybe(.12)) n = n.replace(" ", "   ");
       return n;
     }
 
     function genEmail(customer){
-      if(maybe(.22)) return "";                // missing
+      if(maybe(.22)) return "";
       const base = (customer||"user").toLowerCase().replace(/[^a-z0-9]+/g,".").replace(/^\.+|\.+$/g,"");
       const domains = ["gmail.com","outlook.com","company.com","yahoo.com","hotmail.com"];
       let e = `${base}@${pick(domains)}`;
-      if(maybe(.12)) e = e.replace("@"," (at) ");  // (at)
-      if(maybe(.10)) e = e.replace("."," (dot) "); // (dot)
-      if(maybe(.10)) e = e.replace("@", "@@");     // double @
-      if(maybe(.08)) e = e.replace(".", ",");      // comma instead dot
-      if(maybe(.06)) e = " " + e + " ";            // extra spaces
+      if(maybe(.12)) e = e.replace("@"," (at) ");
+      if(maybe(.10)) e = e.replace("."," (dot) ");
+      if(maybe(.10)) e = e.replace("@", "@@");
+      if(maybe(.08)) e = e.replace(".", ",");
+      if(maybe(.06)) e = " " + e + " ";
       return e;
     }
 
@@ -1558,23 +1529,19 @@
 
       const style = randInt(1,5);
       if(style===1){
-        // TR: 1.234,56
         const parts = as.toFixed(2).split(".");
         const int = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
         return `₺${int},${parts[1]}`;
       }
       if(style===2){
-        // US: 1,234.56
         const parts = as.toFixed(2).split(".");
         const int = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");
         return `${int}.${parts[1]}`;
       }
       if(style===3){
-        // plain with comma
         return as.toFixed(2).replace(".",",");
       }
       if(style===4){
-        // no decimals
         return String(Math.round(as)).replace(/\B(?=(\d{3})+(?!\d))/g,".");
       }
       return "  " + as.toFixed(2) + " ";
@@ -1612,7 +1579,7 @@
     }
 
     function makeDirty(n=140){
-      const start = new Date();
+      const start = Date.now();
       demo.dirty = [];
       const baseYear = 2025;
 
@@ -1627,7 +1594,7 @@
         let channel = genChannel();
 
         const row = {
-          id: (maybe(.08) ? String(i) : String(i).padStart(5,"0")),   // sometimes not padded
+          id: (maybe(.08) ? String(i) : String(i).padStart(5,"0")),
           customer,
           email,
           date: maybe(.08) ? "" : date,
@@ -1641,16 +1608,14 @@
         // duplicates
         if(maybe(.07)){
           const dup = {...row};
-          // slight changes
           if(maybe(.4)) dup.amount = genAmount();
           demo.dirty.push(dup);
         }
       }
 
-      // shuffle a bit
       demo.dirty.sort(()=>Math.random()-0.5);
 
-      const ms = Date.now()-start.getTime();
+      const ms = Date.now()-start;
       dirtyMeta.textContent = `${demo.dirty.length} rows • generated in ${ms} ms`;
     }
 
@@ -1687,7 +1652,6 @@
         let channel = normChannel(r.channel);
         if(channel && String(r.channel||"").trim().toLowerCase() !== channel) fixedChannel++;
 
-        // Dedup key (id + email + date + amount)
         const key = [id, email||"", date||"", amount==null?"":amount.toFixed(2), country||"", channel||""].join("|");
         if(seen.has(key)){
           removedDup++;
@@ -1696,7 +1660,7 @@
         seen.add(key);
 
         out.push({
-          id: id.padStart(5,"0") || null,
+          id: id ? id.padStart(5,"0") : null,
           customer: customer || null,
           email,
           date,
@@ -1726,7 +1690,7 @@
     function renderTable(tbody, rows){
       tbody.innerHTML = "";
       const frag = document.createDocumentFragment();
-      const limit = Math.min(rows.length, 220); // keep UI snappy
+      const limit = Math.min(rows.length, 220);
       for(let i=0;i<limit;i++){
         const r = rows[i];
         const tr = document.createElement("tr");
@@ -1768,13 +1732,12 @@
         lines.push("");
         lines.push("Örnek standartlar:");
         lines.push("- date   => YYYY-MM-DD");
-        lines.push("- amount => 2 ondalık, TRY formatına uygun");
+        lines.push("- amount => 2 ondalık");
         lines.push("- country=> TR/DE/UK gibi kodlar");
         lines.push("- channel=> web/mobile/call_center...");
         lines.push("");
         lines.push("Teslim:");
         lines.push("- clean.csv (temiz veri)");
-        lines.push("- cleaning.py (Python/Pandas script)");
       }else{
         lines.push("DATA CLEANING QUALITY REPORT");
         lines.push("------------------------------------------------------------");
@@ -1798,7 +1761,6 @@
         lines.push("");
         lines.push("Deliverables:");
         lines.push("- clean.csv");
-        lines.push("- cleaning.py (Python/Pandas script)");
       }
 
       reportBox.textContent = lines.join("\n");
@@ -1828,172 +1790,168 @@
       setTimeout(()=>URL.revokeObjectURL(url), 1500);
     }
 
+    // ✅ Python script: sadece görüntüleme/kopyalama (indir butonu yok)
     function getPythonScript(){
       return `# -*- coding: utf-8 -*-
-"""
-Seyhan Çınar — Excel/CSV Data Cleaning (Micro Package)
------------------------------------------------------
-Input : dirty.csv
-Output: clean.csv + quality_report.txt
+# Demo: CSV Data Cleaning (Pandas)
+# Not: Bu sayfada "indir" butonu kaldırıldı; script sadece görüntüleniyor.
+#
+# Requirements:
+#   pip install pandas
 
-Usage:
-  pip install pandas openpyxl
-  python cleaning.py
-
-Notes:
-- Dates normalized to YYYY-MM-DD
-- Amount parsed to float with 2 decimals
-- Country codes normalized (TR/DE/UK...)
-- Duplicates removed
-"""
-
-import re
 import pandas as pd
+import re
 
-INPUT_CSV = "dirty.csv"
-OUTPUT_CSV = "clean.csv"
-REPORT_TXT = "quality_report.txt"
+def normalize_date(s: str):
+    if s is None or str(s).strip()=="":
+        return None
+    s = str(s).strip()
 
-def normalize_date(x):
-    if pd.isna(x) or str(x).strip()=="":
-        return pd.NA
-    s = str(x).strip()
-
-    # YYYY-MM-DD or YYYY/MM/DD
     m = re.match(r"^(\\d{4})[-/](\\d{1,2})[-/](\\d{1,2})$", s)
     if m:
         y, mo, d = m.group(1), int(m.group(2)), int(m.group(3))
         return f"{y}-{mo:02d}-{d:02d}"
 
-    # DD.MM.YYYY
     m = re.match(r"^(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})$", s)
     if m:
         d, mo, y = int(m.group(1)), int(m.group(2)), m.group(3)
         return f"{y}-{mo:02d}-{d:02d}"
 
-    # DD/MM/YYYY or MM/DD/YYYY (heuristic)
     m = re.match(r"^(\\d{1,2})/(\\d{1,2})/(\\d{4})$", s)
     if m:
         a, b, y = int(m.group(1)), int(m.group(2)), m.group(3)
-        if a > 12:
+        # heuristic: if a>12 => DD/MM ; if b>12 => MM/DD ; else DD/MM
+        if a>12:
             d, mo = a, b
-        elif b > 12:
+        elif b>12:
             mo, d = a, b
         else:
-            d, mo = a, b  # EU default
+            d, mo = a, b
         return f"{y}-{mo:02d}-{d:02d}"
 
-    return pd.NA
+    return None
 
 def parse_amount_try(x):
-    if pd.isna(x):
-        return pd.NA
+    if x is None:
+        return None
     s = str(x).strip()
-    if s in ("", "-", "—"):
-        return pd.NA
-    s = s.replace("₺","").replace(" ","")
+    if s=="" or s in ["-","—"]:
+        return None
+    s = re.sub(r"[₺\\s]", "", s)
 
     last_dot = s.rfind(".")
     last_com = s.rfind(",")
-
-    if last_dot>-1 and last_com>-1:
+    if last_dot!=-1 and last_com!=-1:
         if last_com > last_dot:
-            # 1.234,56 -> 1234.56
-            s = s.replace(".","").replace(",",".")
+            s = s.replace(".", "").replace(",", ".")  # 1.234,56
         else:
-            # 1,234.56 -> 1234.56
-            s = s.replace(",","")
-    elif last_com>-1:
-        s = s.replace(".","").replace(",",".")
+            s = s.replace(",", "")                    # 1,234.56
+    elif last_com!=-1:
+        s = s.replace(".", "").replace(",", ".")
     else:
         if s.count(".")>1:
-            s = s.replace(".","")
+            s = s.replace(".", "")
 
     try:
-        return round(float(s), 2)
+        v = float(s)
+        return round(v, 2)
     except:
-        return pd.NA
+        return None
 
-def norm_country(x):
-    if pd.isna(x) or str(x).strip()=="":
-        return pd.NA
-    s = str(x).strip().upper()
-    if s in ("TÜRKİYE","TURKEY","TR"):
+def norm_country(c):
+    if c is None or str(c).strip()=="":
+        return None
+    s = str(c).strip().upper()
+    if s in ["TÜRKİYE","TURKEY","TR"]:
         return "TR"
-    if s in ("GERMANY","DE"):
+    if s in ["GERMANY","DE"]:
         return "DE"
-    if s in ("UNITED KINGDOM","UK"):
+    if s in ["UNITED KINGDOM","UK"]:
         return "UK"
     return s[:2]
 
-def norm_channel(x):
-    if pd.isna(x) or str(x).strip()=="":
-        return pd.NA
-    s = str(x).strip().lower()
-    s = re.sub(r"[\\s_]+", " ", s)
-    s = re.sub(r"-+", "-", s)
-    if s in ("call center","call-center"):
+def norm_channel(ch):
+    if ch is None or str(ch).strip()=="":
+        return None
+    s = str(ch).strip().lower()
+    s = re.sub(r"[\\s_]+"," ", s)
+    s = re.sub(r"-+","-", s)
+    if s in ["call center","call-center"]:
         return "call_center"
-    if s in ("web","mobile","store","partner"):
+    if s in ["web","mobile","store","partner"]:
         return s
-    return s.replace(" ", "_")
+    return s.replace(" ","_")
 
-def norm_email(x, customer="user"):
-    if pd.isna(x) or str(x).strip()=="":
-        return pd.NA
-    s = str(x).strip().lower()
-    s = re.sub(r"\\s+","",s)
-    s = re.sub(r"(\\(at\\)|\\[at\\]|\\sat\\s)","@",s)
-    s = re.sub(r"(\\(dot\\)|\\[dot\\]|\\sdot\\s)",".",s)
-    s = re.sub(r",+",".",s)
-    s = re.sub(r"@+","@",s)
+def norm_email(e, customer=None):
+    if e is None or str(e).strip()=="":
+        return None
+    s = str(e).strip().lower()
+    s = re.sub(r"\\s+","", s)
+    s = s.replace("(at)","@").replace("(dot)",".")
+    s = re.sub(r"@+","@", s)
+    s = re.sub(r",+",".", s)
 
-    # validate
+    if "@" not in s and "." in s:
+        user = re.sub(r"[^a-z0-9]+",".", (customer or "user").lower()).strip(".")
+        s = f"{user}@example.com"
+
     if re.match(r"^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", s):
         return s
-    return pd.NA
+    return None
 
-def main():
-    df = pd.read_csv(INPUT_CSV, dtype=str, keep_default_na=False)
-
-    before_rows = len(df)
+def clean_csv(input_path="dirty.csv", output_path="clean.csv"):
+    df = pd.read_csv(input_path)
 
     # normalize
-    df["id"] = df["id"].astype(str).str.strip().str.zfill(5)
-    df["customer"] = df["customer"].astype(str).str.replace(r"\\s+"," ", regex=True).str.strip()
+    df["Customer"] = df["Customer"].astype(str).str.replace(r"\\s+"," ", regex=True).str.strip()
+    df["Email"] = [norm_email(e, c) for e, c in zip(df.get("Email", []), df.get("Customer", []))]
+    df["Date"] = [normalize_date(x) for x in df.get("Date", [])]
+    df["Amount"] = [parse_amount_try(x) for x in df.get("Amount", [])]
+    df["Country"] = [norm_country(x) for x in df.get("Country", [])]
+    df["Channel"] = [norm_channel(x) for x in df.get("Channel", [])]
 
-    df["email"] = [norm_email(e, c) for e, c in zip(df["email"], df["customer"])]
-    df["date"] = df["date"].apply(normalize_date)
-    df["amount"] = df["amount"].apply(parse_amount_try)
-    df["country"] = df["country"].apply(norm_country)
-    df["channel"] = df["channel"].apply(norm_channel)
+    # id pad
+    df["ID"] = df["ID"].astype(str).str.strip().str.zfill(5)
 
-    # drop duplicates
-    df2 = df.drop_duplicates(subset=["id","email","date","amount","country","channel"], keep="first")
-    after_rows = len(df2)
+    # dedupe
+    df = df.drop_duplicates(subset=["ID","Email","Date","Amount","Country","Channel"], keep="first")
 
-    # export
-    df2.to_csv(OUTPUT_CSV, index=False)
+    # amount as 2-dec string (optional)
+    df["Amount"] = df["Amount"].apply(lambda v: None if pd.isna(v) else f"{float(v):.2f}")
 
-    # report
-    with open(REPORT_TXT, "w", encoding="utf-8") as f:
-        f.write("DATA CLEANING QUALITY REPORT\\n")
-        f.write("----------------------------------------\\n")
-        f.write(f"Input rows: {before_rows}\\n")
-        f.write(f"Output rows: {after_rows}\\n")
-        f.write(f"Duplicates removed: {before_rows - after_rows}\\n")
-
-    print("Done.")
-    print(f"- {OUTPUT_CSV}")
-    print(f"- {REPORT_TXT}")
+    df.to_csv(output_path, index=False)
+    return df
 
 if __name__ == "__main__":
-    main()
+    clean_csv("dirty.csv","clean.csv")
+    print("OK: clean.csv written")
 `;
     }
 
     function renderPython(){
       pyBox.textContent = getPythonScript();
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
+        return true;
+      }catch(e){
+        try{
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
+          return true;
+        }catch(err){
+          showToast(document.documentElement.lang === "en" ? "Copy failed" : "Kopyalama başarısız");
+          return false;
+        }
+      }
     }
 
     function seedFakeShots(){
@@ -2002,7 +1960,6 @@ if __name__ == "__main__":
       before.innerHTML = "";
       after.innerHTML = "";
 
-      // 4 cols grid, 8 rows
       const total = 4 * 10;
 
       for(let i=0;i<total;i++){
@@ -2038,70 +1995,54 @@ if __name__ == "__main__":
       demo.stats = null;
       cleanTbody.innerHTML = "";
       cleanMeta.textContent = "—";
-      reportBox.textContent = (document.documentElement.lang==="en")
-        ? "Generated messy data. Click “Clean”."
-        : "Bozuk veri üretildi. “Temizle”ye bas.";
+      reportBox.textContent = "—";
       seedFakeShots();
-      showToast(document.documentElement.lang==="en" ? "Generated" : "Üretildi");
+      showToast(document.documentElement.lang === "en" ? "Generated" : "Üretildi");
     });
 
     $("btnClean").addEventListener("click", ()=>{
       if(!demo.dirty.length){
-        showToast(document.documentElement.lang==="en" ? "Generate sample first" : "Önce örnek üret");
+        showToast(document.documentElement.lang === "en" ? "Generate first" : "Önce veri üret");
         return;
       }
       cleanData();
       renderTable(cleanTbody, demo.clean);
       seedFakeShots();
-      showToast(document.documentElement.lang==="en" ? "Cleaned" : "Temizlendi");
+      showToast(document.documentElement.lang === "en" ? "Cleaned" : "Temizlendi");
     });
 
     $("btnReset").addEventListener("click", ()=>{
       resetDemo();
-      showToast(document.documentElement.lang==="en" ? "Reset" : "Sıfırlandı");
+      showToast(document.documentElement.lang === "en" ? "Reset" : "Sıfırlandı");
     });
 
     $("btnDlDirty").addEventListener("click", ()=>{
       if(!demo.dirty.length){
-        showToast(document.documentElement.lang==="en" ? "Generate sample first" : "Önce örnek üret");
+        showToast(document.documentElement.lang === "en" ? "Generate first" : "Önce veri üret");
         return;
       }
-      downloadText("dirty.csv", toCSV(demo.dirty), "text/csv;charset=utf-8");
+      downloadText("dirty.csv", toCSV(demo.dirty), "text/csv");
     });
 
     $("btnDlClean").addEventListener("click", ()=>{
       if(!demo.clean.length){
-        showToast(document.documentElement.lang==="en" ? "Clean first" : "Önce temizle");
+        showToast(document.documentElement.lang === "en" ? "Clean first" : "Önce temizle");
         return;
       }
-      downloadText("clean.csv", toCSV(demo.clean), "text/csv;charset=utf-8");
-    });
-
-    $("btnDlPy").addEventListener("click", ()=>{
-      downloadText("cleaning.py", getPythonScript(), "text/x-python;charset=utf-8");
+      downloadText("clean.csv", toCSV(demo.clean), "text/csv");
     });
 
     $("btnCopyReport").addEventListener("click", async ()=>{
       const txt = reportBox.textContent || "";
-      if(!txt || txt==="—"){
-        showToast(document.documentElement.lang==="en" ? "No report yet" : "Rapor yok");
+      if(!txt || txt.trim()==="—"){
+        showToast(document.documentElement.lang === "en" ? "No report" : "Rapor yok");
         return;
       }
-      try{
-        await navigator.clipboard.writeText(txt);
-        showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
-      }catch(e){
-        const ta = document.createElement("textarea");
-        ta.value = txt; document.body.appendChild(ta);
-        ta.select(); document.execCommand("copy");
-        document.body.removeChild(ta);
-        showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
-      }
+      await copyText(txt);
     });
 
     // init demo
-    renderPython();
-    seedFakeShots();
+    resetDemo();
   </script>
 </body>
 </html>
