@@ -447,7 +447,7 @@
     .dotMini{width:8px;height:8px;border-radius:50%}
     .dOk{background: rgba(74,222,128,.95); box-shadow:0 0 0 3px rgba(74,222,128,.10)}
     .dWarn{background: rgba(251,191,36,.95); box-shadow:0 0 0 3px rgba(251,191,36,.10)}
-    .dBad{background: rgba(251,113,133,.95); box-shadow:0 0 0 3px rgba(251,113,133,.95); box-shadow:0 0 0 3px rgba(251,113,133,.10)}
+    .dBad{background: rgba(251,113,133,.95); box-shadow:0 0 0 3px rgba(251,113,133,.10)}
 
     .codeBox{
       border:1px solid rgba(255,255,255,.10);
@@ -498,9 +498,7 @@
       font-size:12.5px;
       color: rgba(255,255,255,.78);
     }
-    .shotBody{
-      padding:12px;
-    }
+    .shotBody{ padding:12px; }
     .fakeGrid{
       display:grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -677,7 +675,6 @@
               <button class="btn" id="btnReset" data-i18n="demo.btnReset">↺ Sıfırla</button>
               <button class="btn" id="btnDlDirty" data-i18n="demo.btnDlDirty">⬇️ Bozuk CSV indir</button>
               <button class="btn" id="btnDlClean" data-i18n="demo.btnDlClean">⬇️ Temiz CSV indir</button>
-              <!-- ✅ KALDIRILDI: Python script indir butonu -->
               <button class="btn" id="btnCopyReport" data-i18n="demo.btnCopyReport">📋 Raporu kopyala</button>
             </div>
           </div>
@@ -1027,20 +1024,18 @@
   <div class="toast" id="toast">Kopyalandı</div>
 
   <script>
-    // ---- (İstersen tek yerden değiştir) dosya adları
+  (function(){
+    // =========================
+    // ✅ SAFE INIT (fix: demo before initialization)
+    // everything runs AFTER DOMContentLoaded
+    // =========================
+
     const FILES = {
       cv_tr: "seyhancinar_cv_tr.PDF",
       cv_en: "seyhancinar_cv_eng.PDF",
       micro_pdf: "Micro_Isler_Paketleri.pdf"
     };
 
-    // Linkleri güvenli şekilde set et
-    document.getElementById("cvTrBtn").setAttribute("href", FILES.cv_tr);
-    document.getElementById("cvEnBtn").setAttribute("href", FILES.cv_en);
-    document.getElementById("microPdfBtn").setAttribute("href", FILES.micro_pdf);
-    document.getElementById("microPdfBtnTop").setAttribute("href", FILES.micro_pdf);
-
-    // ---- i18n dictionary
     const I18N = {
       tr: {
         "top.subtitle":"Software Consultant • Data Analytics • RNG Lab",
@@ -1139,6 +1134,28 @@
         "micro.fast":"Hızlı teslim",
         "micro.pdfBtn":"📦 Micro İşler Paket PDF",
         "micro.pdfNote":"Not: PDF dosyasını repo köküne bu isimle koy (Micro_Isler_Paketleri.pdf).",
+        "micro.m1t":"1) Excel/CSV Temizleme & Standardizasyon",
+        "micro.m1d":"Bozuk tarihler, eksik alanlar, tekrar kayıtlar, format karmaşası… Tek komutla temizlenmiş çıktı + rapor.",
+        "micro.m1l1":"Duplicate removal, null handling, tip dönüşümleri",
+        "micro.m1l2":"Tarih/para/ülke-kod standartlaştırma",
+        "micro.m1l3":"Teslim: Temiz dosya + kısa kalite raporu",
+        "micro.m2t":"2) Otomatik Rapor (Günlük/Haftalık)",
+        "micro.m2d":"Excel/CSV → özet KPI’lar → PDF/HTML rapor. Tek tıkla çalışır hale getirilir.",
+        "micro.m2l1":"KPI tabloları, trend hesapları",
+        "micro.m2l2":"PDF export + mail taslağı (opsiyon)",
+        "micro.m2l3":"Teslim: Script + örnek çıktı",
+        "micro.m3t":"3) Web Scraping ile Liste Toplama",
+        "micro.m3d":"Ürün/ilan/fiyat/iş ilanı verisini çekip temiz bir CSV/Excel çıktısı üretirim.",
+        "micro.m3l1":"requests + BeautifulSoup / basit crawler",
+        "micro.m3l2":"Veri temizleme + alan doğrulama",
+        "micro.m3l3":"Teslim: CSV/Excel + çalışma notu",
+        "micro.m4t":"4) “Mini Dashboard” (HTML Tek Dosya)",
+        "micro.m4d":"Tek HTML içinde filtreli tablo + basit grafik + özet kutuları. Mobil uyumlu.",
+        "micro.m4l1":"KPI kartları + arama/filtre",
+        "micro.m4l2":"Offline çalışacak şekilde (opsiyon)",
+        "micro.m4l3":"Teslim: Tek HTML + veri şablonu",
+        "micro.packt":"Paket önerileri",
+        "micro.packd":"İlk temas için “küçük paket” çok işe yarıyor: hızlı demo + net çıktı. Proje büyürse haftalık/aylık düzene taşırız.",
 
         "train.h":"Eğitim",
         "train.title":"Danışmanlık & Eğitim Paketleri",
@@ -1160,7 +1177,6 @@
         "footer.projects":"Projeler",
         "footer.contact":"İletişim",
 
-        /* ✅ DEMO i18n (Python indir yok) */
         "demo.h":"Demo",
         "demo.title":"Excel/CSV Temizleme — “Before / After”",
         "demo.note":"Bu bölüm; LinkedIn/Instagram paylaşımına uygun şekilde “dağınık veri → temiz veri” dönüşümünü gösteren tek sayfalık bir demo. Aşağıdan örnek “bozuk CSV” üret, temizle, kalite raporunu gör ve CSV dosyalarını indir.",
@@ -1192,7 +1208,7 @@
         "top.menu":"Menu",
 
         "hero.title":"I bring 32+ years of core-banking experience into <span style='color:var(--acc)'>Python</span>, data analytics, and <span style='color:var(--acc2)'>RNG</span>-driven AI projects.",
-        "hero.desc":"COBOL → C/C++ → Java → Python. I worked on core banking, hospitality systems, and multi-domain datasets. Today I build Python + Pandas analytics, an AI-assisted lottery & RNG lab, and client-side security / bundle.js reverse-engineering focused projects.",
+        "hero.desc":"COBOL → C/C++ → Java → Python. I’ve worked on core banking, hospitality systems, and multi-domain datasets. Today I build Python + Pandas analytics, an AI-assisted lottery & RNG lab, and client-side security / bundle.js reverse-engineering focused projects.",
         "hero.badge1":"32+ years in enterprise software",
         "hero.badge2":"Core banking & hotel automation",
         "hero.badge3":"Python data analytics",
@@ -1235,7 +1251,7 @@
         "services.title":"What I offer",
         "services.s1t":"1. Data Analytics & Python",
         "services.s1d":"E-commerce, banking, hospitality data",
-        "services.s1l1":"Data cleaning, EDA, reporting with Python + Pandas.",
+        "services.s1l1":"Data cleaning, EDA, and reporting with Python + Pandas.",
         "services.s1l2":"360° customer analytics from multi-domain datasets.",
         "services.s1l3":"Management-friendly visualizations with Matplotlib.",
         "services.s1l4":"Jupyter-based analytics workspaces and templates.",
@@ -1261,13 +1277,51 @@
         "projects.h":"Portfolio",
         "projects.title":"Selected projects",
         "projects.sub":"Ideas shaped by real data, real systems, and experience.",
+        "projects.p1t":"Multi-Domain Analytics Lab",
+        "projects.p1d":"An analytics lab (single Jupyter notebook) that merges e-commerce sales, banking transactions, and hotel reservations to build a 360° customer profile.",
+        "projects.tagSeg":"Segmentation",
+        "projects.p2t":"AI-Lottery • RNG Lab",
+        "projects.p2d":"RNG engines built with MT19937 & HMAC-DRBG, official draw data, human-marked tickets, and hybrid generators inspired by human “perceived randomness”.",
+        "projects.tagTests":"Statistical tests",
+        "projects.p3t":"bundle.js Security Analysis",
+        "projects.p3d":"Reverse-engineering a real online system’s bundle.js to inspect RNG functions, seed design, and client-side risk surfaces.",
+        "projects.tagRNG":"RNG analysis",
+        "projects.tagRE":"Reverse engineering",
+        "projects.p4t":"DeceptiNet AI",
+        "projects.p4d":"A cyber-deception network concept that dynamically guides attackers through decoys and learns from log-driven behavior signals.",
+        "projects.tagLLM":"LLM-assisted defense",
+        "projects.p5t":"YDS Study Hub",
+        "projects.p5d":"An interactive learning space for the YDS exam: vocabulary cards, 3D flip-card UI, grammar summaries, and question-type-based practice in HTML/CSS/JS.",
+        "projects.tagEdu":"Learning design",
 
         "micro.h":"Micro & Fast Wins",
         "micro.title":"Micro projects (fast delivery, fast value)",
-        "micro.sub":"Small but high-impact tasks where teams expect results quickly. Usually planned for a demo/first output within 24–72 hours.",
+        "micro.sub":"Small but high-impact tasks where teams expect results quickly. Typically planned for a demo/first output within 24–72 hours.",
         "micro.fast":"Fast delivery",
         "micro.pdfBtn":"📦 Micro Packages PDF",
         "micro.pdfNote":"Note: Put the PDF in your repo root with this filename (Micro_Isler_Paketleri.pdf).",
+        "micro.m1t":"1) Excel/CSV Cleaning & Standardization",
+        "micro.m1d":"Broken dates, missing fields, duplicates, inconsistent formats… Clean output + quality report with a single run.",
+        "micro.m1l1":"Duplicate removal, null handling, type conversions",
+        "micro.m1l2":"Standardize date/currency/country codes",
+        "micro.m1l3":"Deliverable: cleaned file + short quality report",
+        "micro.m2t":"2) Automated Reports (Daily/Weekly)",
+        "micro.m2d":"Excel/CSV → KPI summary → PDF/HTML report. Delivered as a one-click workflow.",
+        "micro.m2l1":"KPI tables, trend calculations",
+        "micro.m2l2":"PDF export + email draft (optional)",
+        "micro.m2l3":"Deliverable: script + sample output",
+        "micro.m3t":"3) Web Scraping for List Building",
+        "micro.m3d":"Collect product/listing/price/job-post data and deliver a clean CSV/Excel output.",
+        "micro.m3l1":"requests + BeautifulSoup / lightweight crawler",
+        "micro.m3l2":"Cleaning + field validation",
+        "micro.m3l3":"Deliverable: CSV/Excel + brief notes",
+        "micro.m4t":"4) Mini Dashboard (Single HTML File)",
+        "micro.m4d":"Filtered table + simple charts + KPI cards in one HTML. Mobile-friendly.",
+        "micro.m4l1":"KPI cards + search/filter",
+        "micro.m4l2":"Offline-ready (optional)",
+        "micro.m4l3":"Deliverable: single HTML + data template",
+        "micro.packt":"Package suggestions",
+        "micro.packd":"For first contact, a small package works best: quick demo + clear output. If it grows, we move into a weekly/monthly cadence.",
 
         "train.h":"Training",
         "train.title":"Consulting & Training Packages",
@@ -1278,7 +1332,7 @@
         "contact.h":"Contact",
         "contact.title":"What can we build together?",
         "contact.sub":"Reach out for data analytics, RNG, security, or training/consulting.",
-        "contact.desc":"With a short email you can describe your need and request a demo on real data. I’m open to remote, project-based, and freelance models.",
+        "contact.desc":"With a short email you can describe your needs and request a demo on real data. I’m open to remote, project-based, and freelance work.",
         "contact.mailK":"Email:",
         "contact.phoneK":"Phone:",
         "contact.loc":"Istanbul, Türkiye • Global remote friendly",
@@ -1289,7 +1343,6 @@
         "footer.projects":"Projects",
         "footer.contact":"Contact",
 
-        /* ✅ DEMO i18n (Python download removed) */
         "demo.h":"Demo",
         "demo.title":"Excel/CSV Cleaning — “Before / After”",
         "demo.note":"A single-page demo designed for LinkedIn/Instagram: “messy data → clean data”. Generate a broken sample CSV, clean it, view the quality report, and download the CSV files.",
@@ -1317,138 +1370,97 @@
       }
     };
 
-    const els = () => Array.from(document.querySelectorAll("[data-i18n]"));
+    // ---- helpers
+    const $ = (id)=>document.getElementById(id);
+    const els = ()=>Array.from(document.querySelectorAll("[data-i18n]"));
+
+    // ✅ demo state
+    const demo = { dirty: [], clean: [], stats: null };
+
+    function pad2(n){ return String(n).padStart(2,"0"); }
+    function randInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+    function pick(arr){ return arr[randInt(0, arr.length-1)]; }
+    function maybe(p){ return Math.random()<p; }
 
     function setLang(lang){
       const dict = I18N[lang] || I18N.tr;
-      document.documentElement.lang = lang === "en" ? "en" : "tr";
+      document.documentElement.lang = (lang === "en") ? "en" : "tr";
+
       els().forEach(el=>{
         const key = el.getAttribute("data-i18n");
         if(dict[key] != null) el.innerHTML = dict[key];
       });
 
       const isTR = lang !== "en";
-      document.getElementById("btnTR").setAttribute("aria-pressed", isTR ? "true":"false");
-      document.getElementById("btnEN").setAttribute("aria-pressed", isTR ? "false":"true");
+      $("btnTR").setAttribute("aria-pressed", isTR ? "true":"false");
+      $("btnEN").setAttribute("aria-pressed", isTR ? "false":"true");
+
       localStorage.setItem("lang", lang);
 
-      toast.textContent = (lang === "en") ? "Copied" : "Kopyalandı";
+      // ✅ keep report language in sync
+      renderReport();
     }
 
-    // ---- menu button: toggle bottom quick nav bar
-    const footerbar = document.getElementById("footerbar");
-    document.getElementById("menuBtn").addEventListener("click", ()=>{
-      footerbar.hidden = !footerbar.hidden;
-      if(!footerbar.hidden){
-        setTimeout(()=>footerbar.hidden = false, 0);
-      }
-    });
-
-    // ---- toast
-    const toast = document.getElementById("toast");
     function showToast(msg){
+      const toast = $("toast");
       toast.textContent = msg;
       toast.classList.add("show");
       setTimeout(()=>toast.classList.remove("show"), 1400);
     }
 
-    // ---- copy mail
-    document.getElementById("copyMailBtn").addEventListener("click", async ()=>{
-      const mail = document.getElementById("mailText").textContent.trim();
+    async function copyText(text){
       try{
-        await navigator.clipboard.writeText(mail);
+        await navigator.clipboard.writeText(text);
         showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
+        return true;
       }catch(e){
-        const ta = document.createElement("textarea");
-        ta.value = mail; document.body.appendChild(ta);
-        ta.select(); document.execCommand("copy");
-        document.body.removeChild(ta);
-        showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
+        try{
+          const ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta);
+          ta.select(); document.execCommand("copy");
+          document.body.removeChild(ta);
+          showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
+          return true;
+        }catch(err){
+          showToast(document.documentElement.lang === "en" ? "Copy failed" : "Kopyalama başarısız");
+          return false;
+        }
       }
-    });
+    }
 
-    // ---- language buttons
-    document.getElementById("btnTR").addEventListener("click", ()=>setLang("tr"));
-    document.getElementById("btnEN").addEventListener("click", ()=>setLang("en"));
-
-    // ---- init language
-    const saved = localStorage.getItem("lang");
-    setLang(saved || "tr");
-
-    // ---- show bottom bar automatically on scroll a bit
-    let shownOnce = false;
-    window.addEventListener("scroll", ()=>{
-      if(shownOnce) return;
-      if(window.scrollY > 260){
-        footerbar.hidden = false;
-        shownOnce = true;
-      }
-    }, {passive:true});
-
-    /* ============================================================
-      ✅ DATA CLEANING DEMO (tek HTML)
-      - Bozuk CSV üret
-      - Temizle
-      - Tablo + rapor
-      - CSV indir + raporu kopyala
-      - “Mock screenshot” grid
-      - ✅ Python script indir butonu KALDIRILDI
-    ============================================================ */
-
-    const demo = {
-      dirty: [],
-      clean: [],
-      stats: null
-    };
-
-    const $ = (id)=>document.getElementById(id);
-    const dirtyTbody = $("dirtyTable").querySelector("tbody");
-    const cleanTbody = $("cleanTable").querySelector("tbody");
-    const dirtyMeta = $("dirtyMeta");
-    const cleanMeta = $("cleanMeta");
-    const reportBox = $("reportBox");
-    const pyBox = $("pyBox");
-
-    function randInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
-    function pick(arr){ return arr[randInt(0, arr.length-1)]; }
-    function maybe(p){ return Math.random()<p; }
-    function pad2(n){ return String(n).padStart(2,"0"); }
-
+    // ---- demo functions
     function formatDirtyDate(iso){
       const [y,m,d] = iso.split("-");
       const style = randInt(1,5);
-      if(style===1) return `${d}.${m}.${y}`;     // 31.12.2025
-      if(style===2) return `${d}/${m}/${y}`;     // 31/12/2025
-      if(style===3) return `${m}/${d}/${y}`;     // 12/31/2025
-      if(style===4) return `${y}/${m}/${d}`;     // 2025/12/31
-      return `${y}-${m}-${d}`;                   // 2025-12-31
+      if(style===1) return `${d}.${m}.${y}`;
+      if(style===2) return `${d}/${m}/${y}`;
+      if(style===3) return `${m}/${d}/${y}`;
+      if(style===4) return `${y}/${m}/${d}`;
+      return `${y}-${m}-${d}`;
     }
 
     function normalizeDate(s){
       if(!s || !String(s).trim()) return null;
       s = String(s).trim();
 
-      // YYYY-MM-DD or YYYY/MM/DD
       let m = s.match(/^(\d{4})[-\/](\d{1,2})[-\/](\d{1,2})$/);
       if(m){
         const y=m[1], mo=pad2(m[2]), d=pad2(m[3]);
         return `${y}-${mo}-${d}`;
       }
 
-      // DD.MM.YYYY
       m = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
       if(m){
         const d=pad2(m[1]), mo=pad2(m[2]), y=m[3];
         return `${y}-${mo}-${d}`;
       }
 
-      // DD/MM/YYYY  OR  MM/DD/YYYY (ambiguous)
       m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
       if(m){
         const a=parseInt(m[1],10), b=parseInt(m[2],10), y=m[3];
-        if(a>12) return `${y}-${pad2(b)}-${pad2(a)}`;     // DD/MM
-        if(b>12) return `${y}-${pad2(a)}-${pad2(b)}`;     // MM/DD
-        return `${y}-${pad2(b)}-${pad2(a)}`;              // fallback DD/MM
+        if(a>12) return `${y}-${pad2(b)}-${pad2(a)}`;
+        if(b>12) return `${y}-${pad2(a)}-${pad2(b)}`;
+        return `${y}-${pad2(b)}-${pad2(a)}`;
       }
 
       return null;
@@ -1464,12 +1476,12 @@
       const lastCom = s.lastIndexOf(",");
       if(lastDot>-1 && lastCom>-1){
         if(lastCom > lastDot){
-          s = s.replace(/\./g,"").replace(",","."); // 1.234,56
+          s = s.replace(/\./g,"").replace(",",".");
         }else{
-          s = s.replace(/,/g,"");                  // 1,234.56
+          s = s.replace(/,/g,"");
         }
       }else if(lastCom>-1){
-        s = s.replace(/\./g,"").replace(",",".");  // 1234,56
+        s = s.replace(/\./g,"").replace(",",".");
       }else{
         const dots = (s.match(/\./g)||[]).length;
         if(dots>1) s = s.replace(/\./g,"");
@@ -1483,7 +1495,6 @@
     function normEmail(e, customer){
       if(!e || !String(e).trim()) return null;
       let s = String(e).trim().toLowerCase();
-
       s = s.replace(/\s+/g,"");
       s = s.replace(/\(at\)|\sat\s/g,"@");
       s = s.replace(/\(dot\)|\sdot\s/g,".");
@@ -1591,7 +1602,9 @@
         let date = formatDirtyDate(iso);
         let amount = genAmount();
         let country = genCountry();
-        let channel = genChannel();
+        let channel = genChannel;
+
+        channel = genChannel();
 
         const row = {
           id: (maybe(.08) ? String(i) : String(i).padStart(5,"0")),
@@ -1605,7 +1618,6 @@
 
         demo.dirty.push(row);
 
-        // duplicates
         if(maybe(.07)){
           const dup = {...row};
           if(maybe(.4)) dup.amount = genAmount();
@@ -1616,7 +1628,7 @@
       demo.dirty.sort(()=>Math.random()-0.5);
 
       const ms = Date.now()-start;
-      dirtyMeta.textContent = `${demo.dirty.length} rows • generated in ${ms} ms`;
+      $("dirtyMeta").textContent = `${demo.dirty.length} rows • generated in ${ms} ms`;
     }
 
     function cleanData(){
@@ -1626,7 +1638,6 @@
       const seen = new Set();
 
       let removedDup = 0, fixedEmail=0, fixedDate=0, fixedAmount=0, fixedName=0, fixedCountry=0, fixedChannel=0, nullEmail=0, nullDate=0, nullAmount=0;
-
       const out = [];
 
       for(const r of demo.dirty){
@@ -1673,7 +1684,7 @@
       demo.clean = out;
 
       const ms = Date.now()-start;
-      cleanMeta.textContent = `${demo.clean.length} rows • cleaned in ${ms} ms`;
+      $("cleanMeta").textContent = `${demo.clean.length} rows • cleaned in ${ms} ms`;
 
       demo.stats = {
         input: demo.dirty.length,
@@ -1706,7 +1717,10 @@
     }
 
     function renderReport(){
+      const reportBox = $("reportBox");
       const s = demo.stats;
+      if(!reportBox) return;
+
       if(!s){
         reportBox.textContent = "—";
         return;
@@ -1790,11 +1804,10 @@
       setTimeout(()=>URL.revokeObjectURL(url), 1500);
     }
 
-    // ✅ Python script: sadece görüntüleme/kopyalama (indir butonu yok)
     function getPythonScript(){
       return `# -*- coding: utf-8 -*-
 # Demo: CSV Data Cleaning (Pandas)
-# Not: Bu sayfada "indir" butonu kaldırıldı; script sadece görüntüleniyor.
+# Note: On this page, the "download" button is removed; the script is view/copy only.
 #
 # Requirements:
 #   pip install pandas
@@ -1820,7 +1833,6 @@ def normalize_date(s: str):
     m = re.match(r"^(\\d{1,2})/(\\d{1,2})/(\\d{4})$", s)
     if m:
         a, b, y = int(m.group(1)), int(m.group(2)), m.group(3)
-        # heuristic: if a>12 => DD/MM ; if b>12 => MM/DD ; else DD/MM
         if a>12:
             d, mo = a, b
         elif b>12:
@@ -1843,9 +1855,9 @@ def parse_amount_try(x):
     last_com = s.rfind(",")
     if last_dot!=-1 and last_com!=-1:
         if last_com > last_dot:
-            s = s.replace(".", "").replace(",", ".")  # 1.234,56
+            s = s.replace(".", "").replace(",", ".")
         else:
-            s = s.replace(",", "")                    # 1,234.56
+            s = s.replace(",", "")
     elif last_com!=-1:
         s = s.replace(".", "").replace(",", ".")
     else:
@@ -1902,7 +1914,6 @@ def norm_email(e, customer=None):
 def clean_csv(input_path="dirty.csv", output_path="clean.csv"):
     df = pd.read_csv(input_path)
 
-    # normalize
     df["Customer"] = df["Customer"].astype(str).str.replace(r"\\s+"," ", regex=True).str.strip()
     df["Email"] = [norm_email(e, c) for e, c in zip(df.get("Email", []), df.get("Customer", []))]
     df["Date"] = [normalize_date(x) for x in df.get("Date", [])]
@@ -1910,13 +1921,10 @@ def clean_csv(input_path="dirty.csv", output_path="clean.csv"):
     df["Country"] = [norm_country(x) for x in df.get("Country", [])]
     df["Channel"] = [norm_channel(x) for x in df.get("Channel", [])]
 
-    # id pad
     df["ID"] = df["ID"].astype(str).str.strip().str.zfill(5)
 
-    # dedupe
     df = df.drop_duplicates(subset=["ID","Email","Date","Amount","Country","Channel"], keep="first")
 
-    # amount as 2-dec string (optional)
     df["Amount"] = df["Amount"].apply(lambda v: None if pd.isna(v) else f"{float(v):.2f}")
 
     df.to_csv(output_path, index=False)
@@ -1929,34 +1937,15 @@ if __name__ == "__main__":
     }
 
     function renderPython(){
-      pyBox.textContent = getPythonScript();
-    }
-
-    async function copyText(text){
-      try{
-        await navigator.clipboard.writeText(text);
-        showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
-        return true;
-      }catch(e){
-        try{
-          const ta = document.createElement("textarea");
-          ta.value = text;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand("copy");
-          document.body.removeChild(ta);
-          showToast(document.documentElement.lang === "en" ? "Copied" : "Kopyalandı");
-          return true;
-        }catch(err){
-          showToast(document.documentElement.lang === "en" ? "Copy failed" : "Kopyalama başarısız");
-          return false;
-        }
-      }
+      const pyBox = $("pyBox");
+      if(pyBox) pyBox.textContent = getPythonScript();
     }
 
     function seedFakeShots(){
       const before = $("fakeBefore");
       const after = $("fakeAfter");
+      if(!before || !after) return;
+
       before.innerHTML = "";
       after.innerHTML = "";
 
@@ -1978,71 +1967,124 @@ if __name__ == "__main__":
       demo.dirty = [];
       demo.clean = [];
       demo.stats = null;
-      dirtyTbody.innerHTML = "";
-      cleanTbody.innerHTML = "";
-      dirtyMeta.textContent = "—";
-      cleanMeta.textContent = "—";
-      reportBox.textContent = "—";
+
+      const dirtyTbody = $("dirtyTable")?.querySelector("tbody");
+      const cleanTbody = $("cleanTable")?.querySelector("tbody");
+      if(dirtyTbody) dirtyTbody.innerHTML = "";
+      if(cleanTbody) cleanTbody.innerHTML = "";
+
+      if($("dirtyMeta")) $("dirtyMeta").textContent = "—";
+      if($("cleanMeta")) $("cleanMeta").textContent = "—";
+      if($("reportBox")) $("reportBox").textContent = "—";
+
       renderPython();
       seedFakeShots();
     }
 
-    // --- buttons
-    $("btnGen").addEventListener("click", ()=>{
-      makeDirty(160);
-      renderTable(dirtyTbody, demo.dirty);
-      demo.clean = [];
-      demo.stats = null;
-      cleanTbody.innerHTML = "";
-      cleanMeta.textContent = "—";
-      reportBox.textContent = "—";
-      seedFakeShots();
-      showToast(document.documentElement.lang === "en" ? "Generated" : "Üretildi");
-    });
+    // ---- init after DOM is ready
+    function init(){
+      // Linkleri güvenli şekilde set et
+      if($("cvTrBtn")) $("cvTrBtn").setAttribute("href", FILES.cv_tr);
+      if($("cvEnBtn")) $("cvEnBtn").setAttribute("href", FILES.cv_en);
+      if($("microPdfBtn")) $("microPdfBtn").setAttribute("href", FILES.micro_pdf);
+      if($("microPdfBtnTop")) $("microPdfBtnTop").setAttribute("href", FILES.micro_pdf);
 
-    $("btnClean").addEventListener("click", ()=>{
-      if(!demo.dirty.length){
-        showToast(document.documentElement.lang === "en" ? "Generate first" : "Önce veri üret");
-        return;
-      }
-      cleanData();
-      renderTable(cleanTbody, demo.clean);
-      seedFakeShots();
-      showToast(document.documentElement.lang === "en" ? "Cleaned" : "Temizlendi");
-    });
+      // menu button: toggle bottom quick nav bar
+      const footerbar = $("footerbar");
+      $("menuBtn")?.addEventListener("click", ()=>{
+        footerbar.hidden = !footerbar.hidden;
+      });
 
-    $("btnReset").addEventListener("click", ()=>{
+      // copy mail
+      $("copyMailBtn")?.addEventListener("click", async ()=>{
+        const mail = ($("mailText")?.textContent || "").trim();
+        if(!mail) return;
+        await copyText(mail);
+      });
+
+      // language buttons
+      $("btnTR")?.addEventListener("click", ()=>setLang("tr"));
+      $("btnEN")?.addEventListener("click", ()=>setLang("en"));
+
+      // init language
+      const saved = localStorage.getItem("lang");
+      setLang(saved || "tr");
+
+      // show bottom bar automatically on scroll a bit
+      let shownOnce = false;
+      window.addEventListener("scroll", ()=>{
+        if(shownOnce) return;
+        if(window.scrollY > 260){
+          footerbar.hidden = false;
+          shownOnce = true;
+        }
+      }, {passive:true});
+
+      // demo buttons
+      $("btnGen")?.addEventListener("click", ()=>{
+        makeDirty(160);
+        const dirtyTbody = $("dirtyTable").querySelector("tbody");
+        renderTable(dirtyTbody, demo.dirty);
+
+        demo.clean = [];
+        demo.stats = null;
+        const cleanTbody = $("cleanTable").querySelector("tbody");
+        cleanTbody.innerHTML = "";
+        $("cleanMeta").textContent = "—";
+        $("reportBox").textContent = "—";
+
+        seedFakeShots();
+        showToast(document.documentElement.lang === "en" ? "Generated" : "Üretildi");
+      });
+
+      $("btnClean")?.addEventListener("click", ()=>{
+        if(!demo.dirty.length){
+          showToast(document.documentElement.lang === "en" ? "Generate first" : "Önce veri üret");
+          return;
+        }
+        cleanData();
+        const cleanTbody = $("cleanTable").querySelector("tbody");
+        renderTable(cleanTbody, demo.clean);
+        seedFakeShots();
+        showToast(document.documentElement.lang === "en" ? "Cleaned" : "Temizlendi");
+      });
+
+      $("btnReset")?.addEventListener("click", ()=>{
+        resetDemo();
+        showToast(document.documentElement.lang === "en" ? "Reset" : "Sıfırlandı");
+      });
+
+      $("btnDlDirty")?.addEventListener("click", ()=>{
+        if(!demo.dirty.length){
+          showToast(document.documentElement.lang === "en" ? "Generate first" : "Önce veri üret");
+          return;
+        }
+        downloadText("dirty.csv", toCSV(demo.dirty), "text/csv");
+      });
+
+      $("btnDlClean")?.addEventListener("click", ()=>{
+        if(!demo.clean.length){
+          showToast(document.documentElement.lang === "en" ? "Clean first" : "Önce temizle");
+          return;
+        }
+        downloadText("clean.csv", toCSV(demo.clean), "text/csv");
+      });
+
+      $("btnCopyReport")?.addEventListener("click", async ()=>{
+        const txt = $("reportBox")?.textContent || "";
+        if(!txt || txt.trim()==="—"){
+          showToast(document.documentElement.lang === "en" ? "No report" : "Rapor yok");
+          return;
+        }
+        await copyText(txt);
+      });
+
+      // init demo
       resetDemo();
-      showToast(document.documentElement.lang === "en" ? "Reset" : "Sıfırlandı");
-    });
+    }
 
-    $("btnDlDirty").addEventListener("click", ()=>{
-      if(!demo.dirty.length){
-        showToast(document.documentElement.lang === "en" ? "Generate first" : "Önce veri üret");
-        return;
-      }
-      downloadText("dirty.csv", toCSV(demo.dirty), "text/csv");
-    });
-
-    $("btnDlClean").addEventListener("click", ()=>{
-      if(!demo.clean.length){
-        showToast(document.documentElement.lang === "en" ? "Clean first" : "Önce temizle");
-        return;
-      }
-      downloadText("clean.csv", toCSV(demo.clean), "text/csv");
-    });
-
-    $("btnCopyReport").addEventListener("click", async ()=>{
-      const txt = reportBox.textContent || "";
-      if(!txt || txt.trim()==="—"){
-        showToast(document.documentElement.lang === "en" ? "No report" : "Rapor yok");
-        return;
-      }
-      await copyText(txt);
-    });
-
-    // init demo
-    resetDemo();
+    document.addEventListener("DOMContentLoaded", init, {once:true});
+  })();
   </script>
 </body>
 </html>
